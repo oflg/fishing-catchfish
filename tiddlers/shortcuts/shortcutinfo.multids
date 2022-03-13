@@ -1,0 +1,8 @@
+title: $:/config/ShortcutInfo/
+
+fishing-annotate: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "annotate">>/>
+fishing-excerpt: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerpt">>/>
+fishing-setcloze: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setcloze">>/>
+fishing-setexcerpt: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setexcerpt">>/>
+fishing-setquestion: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setquestion">>/>
+fishing-setselect: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setselect">>/>

@@ -1,0 +1,38 @@
+title: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setcloze
+tags: $:/tags/EditorToolbar
+icon: $:/plugins/oflg/fishing-catchfish/icons/setcloze
+caption: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setcloze">>/>
+description: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setclozetip">>/>
+condition: [<targetTiddler>!search:caption:literal[Cloze}}]]
+shortcuts: ((fishing-setcloze))
+
+\define tv-action-refresh-policy() always
+
+<$action-sendmessage
+    $message="tm-edit-text-operation"
+    $param="save-selection"
+    tiddler="$:/temp/fishing"
+    field="save-selection"
+/>
+
+<$list
+    filter="[<targetTiddler>]"
+>
+    <$navigator
+        story="$:/StoryList"
+        history="$:/HistoryList"
+        relinkOnRename="yes"
+    >
+        <$fieldmangler>
+            <$action-sendmessage
+                $message="tm-add-tag"
+                $param="?"
+            />
+            <$action-setfield
+                $tiddler=<<targetTiddler>>
+                draft.title={{{ [{$:/temp/fishing!!save-selection}!is[blank]]~[<targetTiddler>get[draft.title]] }}}
+                caption="{{||Cloze}}"
+            />
+        </$fieldmangler>
+    </$navigator>
+</$list>

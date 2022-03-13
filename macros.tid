@@ -1,0 +1,23 @@
+tags: $:/tags/Macro
+title: $:/plugins/oflg/fishing-catchfish/macros
+
+\define fishbreadcrumbs()
+<$let
+    currentTiddler={{{ [<currentTiddler>tags[]] :intersection[<currentTiddler>listed[]]+[first[]] }}}
+>
+    <$reveal
+        default=<<currentTiddler>>
+        type="nomatch"
+        text=""
+    >
+        <<fishbreadcrumbs>>
+    </$reveal>
+    <$reveal
+        default=<<currentTiddler>>
+        type="nomatch"
+        text=""
+    >
+        {{||$:/core/ui/TagTemplate}}>
+    </$reveal>
+</$let>
+\end

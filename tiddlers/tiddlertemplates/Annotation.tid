@@ -1,0 +1,27 @@
+title: Annotation
+
+<$list
+    filter="[<currentTiddler>listed[]] :intersection[<currentTiddler>tags[]]"
+    variable="sourceTiddler"
+>
+    <<sourceTiddler>>
+    <span
+        class="tc-fish-title"
+    >
+        <$dynannotate
+            search={{!!annotate-text}}
+            searchDisplay="snippet"
+        >
+            <$transclude
+                tiddler=<<sourceTiddler>>
+                mode="block"
+            />
+        </$dynannotate>
+    </span>
+</$list>
+<$list
+    filter="[<currentTiddler>listed[]] :intersection[<currentTiddler>tags[]] +[count[]match[0]]"
+    variable="null"
+>
+    {{!!title}}
+</$list>

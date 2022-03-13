@@ -1,0 +1,38 @@
+title: $:/plugins/oflg/fishing-catchfish/buttons/fishingrod/import
+tags: $:/tags/fishingrod/Button
+list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
+
+<$reveal
+    default={{{[prefix[$:/plugins/twpub/]]}}}
+    type="nomatch"
+    text=""
+    animate="yes"
+>
+    <$button
+        tooltip=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "importtip">>
+        aria-label=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "importtip">>
+        popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingrod/fishingbait">>
+        class="tc-btn-invisible"
+        style="margin:0;padding:0 5px;"
+    >
+        {{$:/core/images/import-button}}
+    </$button>
+</$reveal>
+<$reveal
+    state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingrod/fishingbait">>
+    type="popup"
+    position="below"
+    animate="yes"
+>
+    <div
+        class="tc-popup-keep tc-drop-down"
+        style="min-width:0;padding:10px;font-size:10pt;"
+    >
+        TWPUB:
+        <$list
+            filter="[!has[draft.of]plugin-type[plugin]prefix[$:/plugins/twpub/]sort[description]]"
+            template="$:/core/ui/PluginListItemTemplate"
+            emptyMessage={{$:/language/ControlPanel/Plugins/Empty/Hint}}>>
+        />
+    </div>
+</$reveal>

@@ -2,164 +2,85 @@ title: $:/core/ui/ViewTemplate/body/catchfish
 
 \define CJKV() (?:[\u3400-\u4DB5\u4E00-\u9FEA\uFA0E\uFA0F\uFA11\uFA13\uFA14\uFA1F\uFA21\uFA23\uFA24\uFA27-\uFA29]|[\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879][\uDC00-\uDFFF]|\uD869[\uDC00-\uDED6\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF34\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0])
 
-\define click-annotation-actions()
-<$action-setfield $tiddler="$:/temp/dynannotate/demo/annotation-title" $value=<<annotationTiddler>>/>
-\end
-
-\define create-annotation-actions()
-<$action-createtiddler
-	$basetitle="$:/plugins/tiddlywiki/dynannotate/demo-annotation"
-	$savetitle={{{ [<currentTiddler>addprefix[$:/state/dynannotate/temp-save-title/]] }}}
-	annotate-tiddler=<<currentTiddler>>
-	annotate-text=<<text>>
-	annotate-prefix=<<prefix>>
-	annotate-suffix=<<suffix>>
-	annotate-colour=<<colour>>
-/>
-<$set
-    name="popup-coords"
-    value={{{ [<currentTiddler>addprefix[$:/state/dynannotate/popup-selection/]get[text]] }}}
+<$list
+    filter="[all[current]!has[plugin-type]!field:hide-body[yes]]"
 >
-    <$action-deletetiddler
-        $tiddler={{{ [<currentTiddler>addprefix[$:/state/dynannotate/popup-selection/]] }}}
-    />
-    <$action-setfield
-        $tiddler="$:/temp/dynannotate/demo/annotation-title"
-        $value={{{ [<currentTiddler>addprefix[$:/state/dynannotate/temp-save-title/]get[text]] }}}
-    />
-    <$action-popup
-        $state={{{ [<currentTiddler>addprefix[$:/state/dynannotate/popup-annotation/]] }}}
-        $coords=<<popup-coords>>
-    />
-</$set>
-\end
-
-<$reveal
-    tag="div"
-    class="tc-tiddler-body"
-    type="nomatch"
-    stateTitle=<<folded-state>>
-    text="hide"
-    retain="yes"
-    animate="yes"
->
-    <$list
-        filter="[all[current]!has[plugin-type]!field:hide-body[yes]]"
-    >
-        <div
-            style="position:relative;"
-        ><!-- Needed for the popups to work -->
+    <div
+        style="position:relative;"
+    ><!-- Needed for the popups to work -->
+        <$dynannotate
+            filter="[all[shadows+tiddlers]!has[draft.of]!tag[!]!has[word]has[annotate-text]]"
+            actions="""<$action-setfield $tiddler="$:/temp/fishing/annotate" $value={{{ [<annotationTiddler>get[annotate-text]] }}}/>"""
+            popup=<<qualify "$:/state/popup/annotation">>
+            search={{{ [all[shadows+tiddlers]has[word]!has[annotate-text]!tag[!]!has[due]search:word:regexp<CJKV>get[word]unique[]][all[shadows+tiddlers]has[word]!has[annotate-text]!tag[!]!has[due]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]]+[join[|]] }}}
+            searchMode="regexp"
+            searchClass="tc-dynannotation-search-overlay-blurred"
+            searchMinLength={{$:/config/Search/MinLength}}
+        >
             <$dynannotate
-                filter="[all[shadows+tiddlers]!has[draft.of]annotate-tiddler<currentTiddler>]"
-                actions=<<click-annotation-actions>>
-                popup={{{ [<currentTiddler>addprefix[$:/state/dynannotate/popup-annotation/]] }}}
-                selection={{{ [<currentTiddler>addprefix[$:/state/dynannotate/selection/]] }}}
-                selectionPrefix={{{ [<currentTiddler>addprefix[$:/state/dynannotate/selection-prefix/]] }}}
-                selectionSuffix={{{ [<currentTiddler>addprefix[$:/state/dynannotate/selection-suffix/]] }}}
-                selectionPopup={{{ [<currentTiddler>addprefix[$:/state/dynannotate/popup-selection/]] }}}
-                search={{{[all[shadows]!is[tiddler]search:word:regexp<CJKV>get[word]unique[]][all[shadows]!is[tiddler]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]]+[join[|]]}}}
+                filter="[all[tiddlerstiddlers]!has[draft.of]!tag[!]!has[word]has[annotate-text]]"
+                selection="$:/temp/fishing/selection"
+                selectionPrefix="$:/temp/fishing/selection-prefix"
+                selectionSuffix="$:/temp/fishing/selection-suffix"
+                selectionPopup=<<qualify "$:/state/popup/selection">>
+                search={{{ [all[shadows+tiddlers]has[word]!has[annotate-text]!tag[!]has[due]search:word:regexp<CJKV>get[word]unique[]][all[shadows+tiddlers]has[word]!has[annotate-text]!tag[!]has[due]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]]+[join[|]] }}}
                 searchMode="regexp"
-                searchClass="tc-dynannotation-search-overlay-blurred"
+                searchClass="tc-dynannotation-search-overlay-animated"
                 searchMinLength={{$:/config/Search/MinLength}}
             >
-                <$dynannotate
-                    filter="[all[shadows+tiddlers]!has[draft.of]annotate-tiddler<currentTiddler>]"
-                    actions=<<click-annotation-actions>>
-                    popup={{{ [<currentTiddler>addprefix[$:/state/dynannotate/popup-annotation/]] }}}
-                    selection={{{ [<currentTiddler>addprefix[$:/state/dynannotate/selection/]] }}}
-                    selectionPrefix={{{ [<currentTiddler>addprefix[$:/state/dynannotate/selection-prefix/]] }}}
-                    selectionSuffix={{{ [<currentTiddler>addprefix[$:/state/dynannotate/selection-suffix/]] }}}
-                    selectionPopup={{{ [<currentTiddler>addprefix[$:/state/dynannotate/popup-selection/]] }}}
-                    search={{{[all[tiddlers]!tag[!]search:word:regexp<CJKV>get[word]unique[]][all[tiddlers]!tag[!]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]]+[join[|]]}}}
-                    searchMode="regexp"
-                    searchClass="tc-dynannotation-search-overlay-animated"
-                    searchMinLength={{$:/config/Search/MinLength}}
+                <$transclude
+                    mode="block"
                 >
-                    <$transclude
-                        mode="block"
-                    >
-                        <$transclude tiddler="$:/language/MissingTiddler/Hint"/>
-                    </$transclude>
-                </$dynannotate>
+                    <$transclude tiddler="$:/language/MissingTiddler/Hint"/>
+                </$transclude>
             </$dynannotate>
+        </$dynannotate>
+        <$list
+            filter="[{$:/temp/fishing/annotate}!is[blank]]"
+            variable="annotation"
+        >
             <$reveal
                 type="popup"
-                state={{{ [<currentTiddler>addprefix[$:/state/dynannotate/popup-annotation/]] }}}
-                position="belowright" animate="yes" retain="yes" style="overflow-y:hidden;"
+                state=<<qualify "$:/state/popup/annotation">>
+                animate="yes"
+                retain="yes"
+                style="overflow-y:hidden;"
+                class="tc-popup-keep annotation-wrapper"
             >
-                <div
-                    class="tc-drop-down-wrapper"
+                <$list
+                    filter="[all[shadows+tiddlers]!has[draft.of]annotate-text<annotation>][all[shadows+tiddlers]!has[draft.of]word<annotation>]"
                 >
-                    <div
-                        class="tc-drop-down tc-popup-keep"
-                        style="max-width:550px;white-space: normal;overflow-y:hidden;"
-                    >
-                        <$tiddler
-                            tiddler={{$:/temp/dynannotate/demo/annotation-title}}
-                        >
-                            <p>
-                                <h2>
-                                    This is an annotation
-                                </h2>
-                            </p>
-                            <p>
-                                The annotation is stored in the tiddler:
-                            </p>
-                            <p>
-                                <$link>
-                                    <$view field="title"/>
-                                </$link>
-                            </p>
-                            <p>
-                                The annotated text is ''<$view field="annotate-text"/>''.
-                            </p>
-                            <p>
-                                Annotation Colour:
-                                <$macrocall $name='colour-picker' actions="""<$action-setfield $field="annotate-colour" $value=<<colour-picker-value>>/>"""/>
-                            </p>
-                        </$tiddler>
-                    </div>
-                </div>
+                    {{||$:/core/ui/StoryTiddlerTemplate}}
+                </$list>
             </$reveal>
-            <$list
-                filter="[<currentTiddler>addprefix[$:/state/dynannotate/selection/]get[text]search-replace:gm:regexp[(^\s*)|(\s*$)],[]!is[blank]]"
-                variable="null"
+        </$list>
+        <$list
+            filter="[{$:/temp/fishing/selection}trim[]!is[blank]]"
+            variable="selection"
+        >
+            <$reveal
+                type="popup"
+                state=<<qualify "$:/state/popup/selection">>
+                animate="yes"
+                retain="yes"
+                style="overflow-y:hidden;"
+                class="tc-popup-keep annotation-wrapper"
             >
-                <$reveal
-                    type="popup"
-                    state={{{ [<currentTiddler>addprefix[$:/state/dynannotate/popup-selection/]] }}}
-                        position="belowright"
-                        animate="yes"
-                        retain="yes"
-                        style="overflow-y:hidden;"
+                <$let
+                    sourceTiddler=<<currentTiddler>>
+                    selectionPrefix={{$:/temp/fishing/selection-prefix}}
+                    selectionSuffix={{$:/temp/fishing/selection-suffix}}
                 >
-                    <div class="tc-drop-down-wrapper">
-                    <div class="tc-drop-down tc-popup-keep" style="max-width:550px;white-space:normal;">
-                    <$vars
-                        text={{{ [<currentTiddler>addprefix[$:/state/dynannotate/selection/]get[text]] }}}
-                        prefix={{{ [<currentTiddler>addprefix[$:/state/dynannotate/selection-prefix/]get[text]] }}}
-                        suffix={{{ [<currentTiddler>addprefix[$:/state/dynannotate/selection-suffix/]get[text]] }}}
-                        colour={{{ [<currentTiddler>addprefix[$:/state/dynannotate/annotation-colour/]get[text]] }}}
-                    >
-
-                    <$button actions=<<create-annotation-actions>>>
-                    标注
-                    </$button>
-
-                    <p>
-                    Text: <$text text=<<text>>/>
-                    </p>
-                    <p>
-                    Prefix: <$text text=<<prefix>>/>
-                    </p>
-                    <p>
-                    Suffix: <$text text=<<suffix>>/>
-                    </p>
-                    </$vars>
-                    </div>
-                    </div>
-                </$reveal>
-            </$list>
-        </div>
-    </$list>
-</$reveal>
+                    <$list filter="[all[shadows+tiddlers]tag[$:/tags/Annotation]!has[draft.of]]">
+                        <$transclude/>
+                    </$list>
+                </$let>
+                <$list
+                    filter="[all[shadows+tiddlers]!has[draft.of]annotate-text<selection>][all[shadows+tiddlers]!has[draft.of]word<selection>]"
+                >
+                    {{||$:/core/ui/StoryTiddlerTemplate}}
+                </$list>
+            </$reveal>
+        </$list>
+    </div>
+</$list>

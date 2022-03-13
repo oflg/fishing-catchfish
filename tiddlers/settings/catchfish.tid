@@ -1,0 +1,7 @@
+caption: <<lan "$:/plugins/oflg/fishing-catchfish/languages" "catchfishsettings">>
+tags: $:/tags/ControlPanel/Settings/Fishing
+title: $:/core/ui/ControlPanel/Settings/Fishing/fishing-catchfish
+
+!!!<$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setparameter">>/>
+
+|<$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setinterval">>/> |<$edit-text tiddler="$:/config/FishingCatchfish/requestInterval" placeholder="1" tag="input"/><br/>@@color:red;font-size:10px;<$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setintervaltip">>/>@@ |

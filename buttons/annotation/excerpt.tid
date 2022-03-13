@@ -1,0 +1,28 @@
+title: $:/plugins/oflg/fishing-catchfish/buttons/annotation/excerpt
+tags: $:/tags/Annotation
+list-after: $:/plugins/oflg/fishing-catchfish/annotation/excerpt
+
+<$button
+    tooltip=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerpttip">>
+    aria-label=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerpttip">>
+>
+    <$action-createtiddler
+        $basetitle={{{ [<sourceTiddler>addsuffix[/]addsuffix<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerpt">] }}}
+        tags={{{ [<sourceTiddler>format:titlelist[]addsuffix[ ?]] }}}
+        text=<<selection>>
+        caption="{{||Excerpt}}"
+        interval={{$:/config/FishingCatchfish/requestInterval}}
+        due={{{ [{$:/config/FishingCatchfish/requestInterval}due[]] }}}
+        review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>
+        annotate-text=<<selection>>
+        annotate-prefix=<<selectionPrefix>>
+        annotate-suffix=<<selectionSuffix>>
+        annotate-colour="LightSkyBlue"
+    >
+        <$action-setfield
+            $tiddler=<<sourceTiddler>>
+            list={{{ [list<sourceTiddler>] [<createTiddler-title>] +[format:titlelist[]join[ ]] }}}
+        />
+    </$action-createtiddler>
+    {{$:/plugins/oflg/fishing-catchfish/icons/excerpt}}
+</$button>

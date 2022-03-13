@@ -1,0 +1,20 @@
+title: $:/plugins/oflg/fishing-catchfish/languages/zh-Hans
+type: application/x-tiddler-dictionary
+
+annotate: 注解
+annotatetip: 注解选中的词语
+excerpt: 摘录
+excerpttip: 摘录选中的句子
+setexcerpt: 设为摘录条目
+setexcerpttip: 设置此条目为摘录条目及所选文本为其标题
+setquestion: 设为问答题条目
+setquestiontip: 设置此条目为问答题条目及所选文本为其标题
+setcloze: 设为填空题条目
+setclozetip: 设置此条目为填空题条目及所选文本为其标题
+setselect: 设为选择题条目
+setselecttip: 设置此条目为选择题条目及所选文本为其标题
+catchfishsettings: 摸鱼
+setparameter: 参数
+setinterval: 摘录条目的初始间隔天数
+setintervaltip: 必须是正整数
+importtip: 导入学习材料
