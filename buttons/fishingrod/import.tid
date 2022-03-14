@@ -1,9 +1,9 @@
 title: $:/plugins/oflg/fishing-catchfish/buttons/fishingrod/import
-tags: $:/tags/fishingrod/Button
+tags: $:/tags/FishingGrod/Button
 list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
 
 <$reveal
-    default={{{[prefix[$:/plugins/twpub/]]}}}
+    default={{{ [all[shadows+tiddlers]tag[$:/tags/FishingBait/Button]!is[draft]] }}}
     type="nomatch"
     text=""
     animate="yes"
@@ -26,13 +26,10 @@ list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
 >
     <div
         class="tc-popup-keep tc-drop-down"
-        style="min-width:0;padding:10px;font-size:10pt;"
+        style="min-width:0;"
     >
-        TWPUB:
-        <$list
-            filter="[!has[draft.of]plugin-type[plugin]prefix[$:/plugins/twpub/]sort[description]]"
-            template="$:/core/ui/PluginListItemTemplate"
-            emptyMessage={{$:/language/ControlPanel/Plugins/Empty/Hint}}>>
-        />
+        <$list filter="[all[shadows+tiddlers]tag[$:/tags/FishingBait/Button]!is[draft]]">
+            <$transclude/>
+        </$list>
     </div>
 </$reveal>

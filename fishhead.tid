@@ -2,6 +2,26 @@ tags: $:/tags/ViewTemplate
 title: $:/plugins/oflg/fishing-catchfish/fishhead
 list-after: $:/core/ui/ViewTemplate/title
 
+\define fishbreadcrumbs()
+<$let
+    currentTiddler={{{ [<currentTiddler>tags[]] :intersection[<currentTiddler>listed[]]+[first[]] }}}
+>
+    <$reveal
+        default=<<currentTiddler>>
+        type="nomatch"
+        text=""
+    >
+        <<fishbreadcrumbs>>
+    </$reveal>
+    <$reveal
+        default=<<currentTiddler>>
+        type="nomatch"
+        text=""
+    >
+        {{||$:/core/ui/TagTemplate}}>
+    </$reveal>
+</$let>
+\end
 <$reveal
     default={{{ [<currentTiddler>tag[?]][<currentTiddler>tag[!]][<currentTiddler>match{$:/temp/fishing!!fish}] }}}
     type="nomatch"

@@ -1,27 +1,29 @@
 title: Annotation
 
-<$list
-    filter="[<currentTiddler>listed[]] :intersection[<currentTiddler>tags[]]"
-    variable="sourceTiddler"
+{{!!annotate-text}}
+<$reveal
+    state=<<folded-state>>
+    type="nomatch"
+    text="hide"
+    animate="yes"
 >
-    <<sourceTiddler>>
-    <span
-        class="tc-fish-title"
+    <$reveal
+        default={{!!text}}
+        type="match"
+        text=""
+        animate="yes"
     >
-        <$dynannotate
-            search={{!!annotate-text}}
-            searchDisplay="snippet"
+        <span
+            class="tc-fish-title"
         >
-            <$transclude
-                tiddler=<<sourceTiddler>>
-                mode="block"
-            />
-        </$dynannotate>
-    </span>
-</$list>
-<$list
-    filter="[<currentTiddler>listed[]] :intersection[<currentTiddler>tags[]] +[count[]match[0]]"
-    variable="null"
->
-    {{!!title}}
-</$list>
+            <main style="width:100%;overflow:hidden;">
+                <iframe
+                    height="400px"
+                    width="100%"
+                    src={{{ [subfilter{$:/config/FishingCatchfish/annotateUrlFilter}] }}}
+                    frameborder=0
+                />
+            </main>
+        </span>
+    </$reveal>
+</$reveal>

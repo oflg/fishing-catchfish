@@ -22,7 +22,7 @@ title: Question
                 name="targetTiddler"
             >
                 <$list
-                    filter="[all[shadows+tiddlers]tag[$:/tags/EditorToolbar]!has[draft.of]]"
+                    filter="[all[shadows+tiddlers]tag[$:/tags/EditorToolbar]!is[draft]]"
                 >
                     <$reveal
                         type="nomatch"
@@ -38,7 +38,7 @@ title: Question
                     </$reveal>
                 </$list>
                 <$list
-                    filter="[all[shadows+tiddlers]tag[$:/tags/EditorTools]!has[draft.of]]"
+                    filter="[all[shadows+tiddlers]tag[$:/tags/EditorTools]!is[draft]]"
                 >
                     <$list
                         filter={{!!condition}}

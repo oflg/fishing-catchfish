@@ -9,7 +9,7 @@ title: $:/core/ui/ViewTemplate/body/catchfish
         style="position:relative;"
     ><!-- Needed for the popups to work -->
         <$dynannotate
-            filter="[all[shadows+tiddlers]!has[draft.of]!tag[!]!has[word]has[annotate-text]]"
+            filter="[all[shadows+tiddlers]!is[draft]!tag[!]!has[word]has[annotate-text]]"
             actions="""<$action-setfield $tiddler="$:/temp/fishing/annotate" $value={{{ [<annotationTiddler>get[annotate-text]] }}}/>"""
             popup=<<qualify "$:/state/popup/annotation">>
             search={{{ [all[shadows+tiddlers]has[word]!has[annotate-text]!tag[!]!has[due]search:word:regexp<CJKV>get[word]unique[]][all[shadows+tiddlers]has[word]!has[annotate-text]!tag[!]!has[due]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]]+[join[|]] }}}
@@ -18,7 +18,7 @@ title: $:/core/ui/ViewTemplate/body/catchfish
             searchMinLength={{$:/config/Search/MinLength}}
         >
             <$dynannotate
-                filter="[all[tiddlerstiddlers]!has[draft.of]!tag[!]!has[word]has[annotate-text]]"
+                filter="[all[tiddlerstiddlers]!is[draft]!tag[!]!has[word]has[annotate-text]]"
                 selection="$:/temp/fishing/selection"
                 selectionPrefix="$:/temp/fishing/selection-prefix"
                 selectionSuffix="$:/temp/fishing/selection-suffix"
@@ -48,7 +48,7 @@ title: $:/core/ui/ViewTemplate/body/catchfish
                 class="tc-popup-keep annotation-wrapper"
             >
                 <$list
-                    filter="[all[shadows+tiddlers]!has[draft.of]annotate-text<annotation>][all[shadows+tiddlers]!has[draft.of]word<annotation>]"
+                    filter="[all[shadows+tiddlers]!is[draft]annotate-text<annotation>][all[shadows+tiddlers]!is[draft]word<annotation>]"
                 >
                     {{||$:/core/ui/StoryTiddlerTemplate}}
                 </$list>
@@ -71,12 +71,12 @@ title: $:/core/ui/ViewTemplate/body/catchfish
                     selectionPrefix={{$:/temp/fishing/selection-prefix}}
                     selectionSuffix={{$:/temp/fishing/selection-suffix}}
                 >
-                    <$list filter="[all[shadows+tiddlers]tag[$:/tags/Annotation]!has[draft.of]]">
+                    <$list filter="[all[shadows+tiddlers]tag[$:/tags/Annotation]!is[draft]]">
                         <$transclude/>
                     </$list>
                 </$let>
                 <$list
-                    filter="[all[shadows+tiddlers]!has[draft.of]annotate-text<selection>][all[shadows+tiddlers]!has[draft.of]word<selection>]"
+                    filter="[all[shadows+tiddlers]!is[draft]annotate-text<selection>][all[shadows+tiddlers]!is[draft]word<selection>]"
                 >
                     {{||$:/core/ui/StoryTiddlerTemplate}}
                 </$list>
