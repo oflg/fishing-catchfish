@@ -4,7 +4,7 @@ title: Excerpt
     filter="[<currentTiddler>listed[]] :intersection[<currentTiddler>tags[]]"
     variable="sourceTiddler"
 >
-    <<sourceTiddler>>
+    {{{ [{!!title}split[/]last[]] }}}
     <span
         class="tc-fish-title"
     >
@@ -23,5 +23,5 @@ title: Excerpt
     filter="[<currentTiddler>listed[]] :intersection[<currentTiddler>tags[]] +[count[]match[0]]"
     variable="null"
 >
-    {{!!title}}
+    {{{ [{!!title}split[/]last[]] }}}
 </$list>

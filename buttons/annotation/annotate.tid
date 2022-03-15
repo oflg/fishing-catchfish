@@ -6,7 +6,7 @@ tags: $:/tags/Annotation
     aria-label=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "annotatetip">>
 >
     <$action-createtiddler
-        $basetitle={{{ [[Annotation/]addsuffix<selection>] }}}
+        $basetitle={{{ [<lan "$:/plugins/oflg/fishing-catchfish/languages" "annotate">addsuffix[/]addsuffix<selection>] }}}
         tags="?"
         caption="{{||Annotation}}"
         annotate-text=<<selection>>

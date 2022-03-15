@@ -1,9 +1,9 @@
 title: $:/plugins/oflg/fishing-catchfish/languages/en-GB
 type: application/x-tiddler-dictionary
 
-annotate: Annotate
+annotate: Annotation
 annotatetip: Annotate the selected word
-excerpt: excerpt sentence
+excerpt: Excerpt
 excerpttip: excerpt the selected sentence
 setexcerpt: Set as Excerpt Tiddler
 setexcerpttip: Set this tiddler as Excerpt Tiddler and the selected text as it's title
@@ -18,4 +18,4 @@ setparameter: Parameter
 setinterval: Initial interval day of Excerpt Tiddlers
 setintervaltip: Must be a positive integer
 importtip: Import learning materials
-urlfilter: URL of Annotate template
+urlfilter: URL of Annotation template
