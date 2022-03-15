@@ -2,9 +2,10 @@ title: $:/plugins/oflg/fishing-catchfish/languages/zh-Hans
 type: application/x-tiddler-dictionary
 
 annotate: 注解
-annotatetip: 注解选中的词语
-excerpt: 摘录
-excerpttip: 摘录选中的句子
+annotateword: 注释单词
+annotatewordtip: 注释选中的单词
+excerptsentence: 摘录句子
+excerptsentencetip: 摘录选中的句子
 setexcerpt: 设为摘录条目
 setexcerpttip: 设置此条目为摘录条目及所选文本为其标题
 setquestion: 设为问答题条目
@@ -18,5 +19,5 @@ setparameter: 参数
 setinterval: 摘录条目的初始间隔天数
 setintervaltip: 必须是正整数
 importtip: 导入学习材料
-urlfilter: 注解模板的网址
+urlfilter: 单词模板的网址
 setbodytip: 显示注解条目的条件。

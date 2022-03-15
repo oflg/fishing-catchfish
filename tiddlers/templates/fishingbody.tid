@@ -9,21 +9,21 @@ title: $:/core/ui/ViewTemplate/fishing/body
         style="position:relative;"
     ><!-- Needed for the popups to work -->
         <$dynannotate
-            filter="[all[shadows+tiddlers]!is[draft]!tag[!]!has[word]has[annotate-text]]"
-            actions="""<$action-setfield $tiddler="$:/temp/fishing/annotate" $value={{{ [<annotationTiddler>get[annotate-text]] }}}/>"""
+            filter="[all[shadows+tiddlers]!is[draft]has[annotate-text]]"
+            actions="""<$action-setfield $tiddler="$:/temp/fishing/annotation" $value={{{ [<annotationTiddler>get[annotate-text]] }}}/>"""
             popup=<<qualify "$:/state/popup/annotation">>
-            search={{{ [all[shadows+tiddlers]has[word]!has[annotate-text]!tag[!]!has[due]search:word:regexp<CJKV>get[word]unique[]][all[shadows+tiddlers]has[word]!has[annotate-text]!tag[!]!has[due]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]]+[join[|]] }}}
+            search={{{ [all[shadows+tiddlers]!tag[!]!has[due]has[word]search:word:regexp<CJKV>get[word]unique[]][all[shadows+tiddlers]has[word]!tag[!]!has[due]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]]+[join[|]] }}}
             searchMode="regexp"
             searchClass="tc-dynannotation-search-overlay-blurred"
             searchMinLength={{$:/config/Search/MinLength}}
         >
             <$dynannotate
-                filter="[all[tiddlerstiddlers]!is[draft]!tag[!]!has[word]has[annotate-text]]"
+                filter="[all[tiddlerstiddlers]!is[draft]has[annotate-text]]"
                 selection="$:/temp/fishing/selection"
                 selectionPrefix="$:/temp/fishing/selection-prefix"
                 selectionSuffix="$:/temp/fishing/selection-suffix"
                 selectionPopup=<<qualify "$:/state/popup/selection">>
-                search={{{ [all[shadows+tiddlers]has[word]!has[annotate-text]!tag[!]has[due]search:word:regexp<CJKV>get[word]unique[]][all[shadows+tiddlers]has[word]!has[annotate-text]!tag[!]has[due]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]]+[join[|]] }}}
+                search={{{ [all[shadows+tiddlers]!tag[!]has[due]has[word]search:word:regexp<CJKV>get[word]unique[]][all[shadows+tiddlers]!tag[!]has[due]has[word]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]]+[join[|]] }}}
                 searchMode="regexp"
                 searchClass="tc-dynannotation-search-overlay-animated"
                 searchMinLength={{$:/config/Search/MinLength}}
@@ -36,7 +36,7 @@ title: $:/core/ui/ViewTemplate/fishing/body
             </$dynannotate>
         </$dynannotate>
         <$list
-            filter="[{$:/temp/fishing/annotate}!is[blank]]"
+            filter="[{$:/temp/fishing/annotation}!is[blank]]"
             variable="annotation"
         >
             <$reveal

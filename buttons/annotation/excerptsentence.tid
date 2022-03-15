@@ -1,13 +1,13 @@
-title: $:/plugins/oflg/fishing-catchfish/buttons/annotation/excerpt
+title: $:/plugins/oflg/fishing-catchfish/buttons/annotation/excerptsentence
 tags: $:/tags/Annotation
 list-after: $:/plugins/oflg/fishing-catchfish/annotation/excerpt
 
 <$button
-    tooltip=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerpttip">>
-    aria-label=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerpttip">>
+    tooltip=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentencetip">>
+    aria-label=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentencetip">>
 >
     <$action-createtiddler
-        $basetitle={{{ [<sourceTiddler>addsuffix[/]addsuffix<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerpt">] }}}
+        $basetitle={{{ [<sourceTiddler>addsuffix[/]addsuffix<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentence">] }}}
         tags={{{ [<sourceTiddler>format:titlelist[]addsuffix[ ?]] }}}
         text=<<selection>>
         caption="{{||Excerpt}}"

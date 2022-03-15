@@ -1,0 +1,22 @@
+key: ((fishing-excerptsentence))
+tags: $:/tags/KeyboardShortcut
+title: $:/core/ui/KeyboardShortcuts/fishing-excerptsentence
+
+<$list
+    filter="[{$:/temp/fishing/selection}trim[]!is[blank]]"
+    variable="selection"
+>
+    <$action-createtiddler
+        $basetitle={{{ [<sourceTiddler>addsuffix[/]addsuffix<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerpt">] }}}
+        tags={{{ [<sourceTiddler>format:titlelist[]addsuffix[ ?]] }}}
+        text=<<selection>>
+        caption="{{||Excerpt}}"
+        interval={{$:/config/FishingCatchfish/requestInterval}}
+        due={{{ [{$:/config/FishingCatchfish/requestInterval}due[]] }}}
+        review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>
+        annotate-text=<<selection>>
+        annotate-prefix={{$:/temp/fishing/selection-prefix}}
+        annotate-suffix={{$:/temp/fishing/selection-suffix}}
+        annotate-colour="LightSkyBlue"
+    />
+</$list>
