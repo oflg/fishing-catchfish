@@ -18,11 +18,6 @@ list-after: $:/plugins/oflg/fishing-catchfish/annotation/excerpt
         annotate-prefix=<<selectionPrefix>>
         annotate-suffix=<<selectionSuffix>>
         annotate-colour="LightSkyBlue"
-    >
-        <$action-setfield
-            $tiddler=<<sourceTiddler>>
-            list={{{ [list<sourceTiddler>] [<createTiddler-title>] +[format:titlelist[]join[ ]] }}}
-        />
-    </$action-createtiddler>
+    />
     {{$:/plugins/oflg/fishing-catchfish/icons/excerpt}}
 </$button>

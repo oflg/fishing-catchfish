@@ -1,0 +1,5 @@
+title: $:/config/ViewTemplateBodyFilters/catchfish
+tags: $:/tags/ViewTemplateBodyFilter
+list-before: $:/config/ViewTemplateBodyFilters/default
+
+[{!!title}] :cascade[all[shadows+tiddlers]tag[$:/tags/FishingFilter/annotation]!is[draft]get[text]] +[!is[blank]limit[1]then[$:/core/ui/ViewTemplate/fishing/body]]

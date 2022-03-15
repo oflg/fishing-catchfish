@@ -19,3 +19,4 @@ setinterval: Initial interval day of Excerpt Tiddlers
 setintervaltip: Must be a positive integer
 importtip: Import learning materials
 urlfilter: URL of Annotation template
+setbodytip: The condition for showing annotation of a tiddler.

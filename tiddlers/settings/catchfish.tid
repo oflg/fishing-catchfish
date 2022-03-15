@@ -9,3 +9,8 @@ title: $:/core/ui/ControlPanel/Settings/Fishing/fishing-catchfish
 !!!<$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "annotate">>/>
 
 |<$link to="$:/config/FishingCatchfish/annotateUrlFilter"><$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "urlfilter">>/></$link> |<$edit-text tiddler="$:/config/FishingCatchfish/annotateUrlFilter" tag="textarea" class="tc-edit-texteditor"/> |
+
+!!!{{$:/language/ControlPanel/Cascades/Caption}}
+
+<$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setbodytip">>/>
+{{$:/tags/FishingFilter/annotation||$:/snippets/ListTaggedCascade}}

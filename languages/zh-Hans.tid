@@ -19,3 +19,4 @@ setinterval: 摘录条目的初始间隔天数
 setintervaltip: 必须是正整数
 importtip: 导入学习材料
 urlfilter: 注解模板的网址
+setbodytip: 显示注解条目的条件。

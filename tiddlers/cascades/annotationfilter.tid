@@ -1,0 +1,4 @@
+title: $:/config/FishingFilter/annotation
+tags: $:/tags/FishingFilter/annotation
+
+[tag[?]] [tag[!]] [then{!!title}match{$:/temp/fishing!!fish}]
