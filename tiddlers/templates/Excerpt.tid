@@ -1,27 +1,27 @@
 title: Excerpt
 
+{{{ [{!!title}split[/]last[]] }}}
 <$list
     filter="[<currentTiddler>tags[]![?]![!]]"
     variable="sourceTiddler"
 >
-    {{{ [{!!title}split[/]last[]] }}}
-    <span
-        class="tc-fish-title"
+    <$list
+        filter="[{!!annotate-text}!is[blank]]"
+        variable="null"
     >
-        <$dynannotate
-            search={{!!annotate-text}}
-            searchDisplay="snippet"
+        <span
+            class="tc-fish-title"
         >
-            <$transclude
-                tiddler=<<sourceTiddler>>
-                mode="block"
-            />
-        </$dynannotate>
-    </span>
-</$list>
-<$list
-    filter="[<currentTiddler>tags[]![?]![!]] +[count[]match[0]]"
-    variable="null"
->
-    {{{ [{!!title}split[/]last[]] }}}
+            <$dynannotate
+                search={{!!annotate-text}}
+                searchDisplay="snippet"
+                searchMinLength={{$:/config/Search/MinLength}}
+            >
+                <$transclude
+                    tiddler=<<sourceTiddler>>
+                    mode="block"
+                />
+            </$dynannotate>
+        </span>
+    </$list>
 </$list>
