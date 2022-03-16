@@ -7,7 +7,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-excerptsentence
     variable="selection"
 >
     <$action-createtiddler
-        $basetitle={{{ [<sourceTiddler>addsuffix[/]addsuffix<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerpt">] }}}
+        $basetitle={{{ [<sourceTiddler>addsuffix[/]addsuffix<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentence">] }}}
         tags={{{ [<sourceTiddler>format:titlelist[]addsuffix[ ?]] }}}
         text=<<selection>>
         caption="{{||Excerpt}}"
