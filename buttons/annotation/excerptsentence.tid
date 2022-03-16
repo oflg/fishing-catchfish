@@ -11,6 +11,7 @@ list-after: $:/plugins/oflg/fishing-catchfish/annotation/excerpt
         tags={{{ [<sourceTiddler>format:titlelist[]addsuffix[ ?]] }}}
         text=<<selection>>
         caption="{{||Excerpt}}"
+        priority={{{ [<sourceTiddler>get[priority]else[0]] }}}
         interval={{$:/config/FishingCatchfish/requestInterval}}
         due={{{ [{$:/config/FishingCatchfish/requestInterval}due[]] }}}
         review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>

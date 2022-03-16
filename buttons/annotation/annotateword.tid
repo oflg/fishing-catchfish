@@ -10,6 +10,7 @@ tags: $:/tags/Annotation
         tags="?"
         caption="{{||Word}}"
         word=<<selection>>
+        priority={{{ [<sourceTiddler>get[priority]else[0]] }}}
     >
         <$action-fishing
             $tiddler=<<createTiddler-title>>
