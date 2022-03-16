@@ -1,7 +1,7 @@
 title: Excerpt
 
 {{{ [{!!title}split[/]last[]] }}}
-<$list
+<!-- <$list
     filter="[<currentTiddler>tags[]![?]![!]]"
     variable="sourceTiddler"
 >
@@ -24,4 +24,4 @@ title: Excerpt
             </$dynannotate>
         </span>
     </$list>
-</$list>
+</$list> -->
