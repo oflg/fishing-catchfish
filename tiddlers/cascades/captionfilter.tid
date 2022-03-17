@@ -1,4 +1,4 @@
 title: $:/config/FishingFilter/Caption/catchfish
 tags: $:/tags/FishingFilter/caption
 
-[{$:/temp/fishing/annotation}match{!!annotate-text}] [{$:/temp/fishing/annotation}match{!!word}] [{$:/temp/fishing/selection}trim[]match{!!annotate-text}] [{$:/temp/fishing/selection}trim[]match{!!word}] +[!is[blank]then{!!title}]
+[{!!title}has[annotate-text]] [{!!title}has[word]]
