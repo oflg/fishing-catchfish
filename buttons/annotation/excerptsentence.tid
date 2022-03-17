@@ -9,15 +9,15 @@ list-after: $:/plugins/oflg/fishing-catchfish/annotation/excerpt
     <$action-createtiddler
         $basetitle={{{ [<sourceTiddler>addsuffix[/]addsuffix<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentence">] }}}
         tags={{{ [<sourceTiddler>format:titlelist[]addsuffix[ ?]] }}}
-        text=<<selection>>
+        text={{$:/temp/fishing/selection}}
         caption="{{||Excerpt}}"
         priority={{{ [<sourceTiddler>get[priority]else[0]] }}}
         interval={{$:/config/FishingCatchfish/requestInterval}}
         due={{{ [{$:/config/FishingCatchfish/requestInterval}due[]] }}}
         review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>
-        annotate-text=<<selection>>
-        annotate-prefix=<<selectionPrefix>>
-        annotate-suffix=<<selectionSuffix>>
+        annotate-text={{$:/temp/fishing/selection}}
+        annotate-prefix={{$:/temp/fishing/selection-prefix}}
+        annotate-suffix={{$:/temp/fishing/selection-suffix}}
         annotate-colour="LightSkyBlue"
     />
     {{$:/plugins/oflg/fishing-catchfish/icons/excerpt}}

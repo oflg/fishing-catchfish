@@ -68,8 +68,6 @@ title: $:/core/ui/ViewTemplate/catchfish/body
             >
                 <$let
                     sourceTiddler=<<currentTiddler>>
-                    selectionPrefix={{$:/temp/fishing/selection-prefix}}
-                    selectionSuffix={{$:/temp/fishing/selection-suffix}}
                 >
                     <$list filter="[all[shadows+tiddlers]tag[$:/tags/Annotation]!is[draft]]">
                         <$transclude/>

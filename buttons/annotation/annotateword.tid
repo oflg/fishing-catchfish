@@ -9,7 +9,7 @@ tags: $:/tags/Annotation
         $basetitle={{{ [<lan "$:/plugins/oflg/fishing-catchfish/languages" "annotateword">addsuffix[/]addsuffix<selection>] }}}
         tags="?"
         caption="{{||Word}}"
-        word=<<selection>>
+        word={{{ [{$:/temp/fishing/selection}trim[]] }}}
         priority={{{ [<sourceTiddler>get[priority]else[0]] }}}
     >
         <$action-fishing
