@@ -10,7 +10,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-annotateword
     <$action-createtiddler
         $basetitle={{{ [<lan "$:/plugins/oflg/fishing-catchfish/languages" "annotateword">addsuffix[/]addsuffix<selection>] }}}
         tags="?"
-        caption="{{||Annotation}}"
+        caption="{{||Word}}"
         word=<<selection>>
     >
         <$action-fishing
