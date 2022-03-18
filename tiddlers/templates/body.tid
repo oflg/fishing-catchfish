@@ -12,8 +12,9 @@ title: $:/core/ui/ViewTemplate/catchfish/body
             filter="[all[shadows+tiddlers]!is[draft]has[annotate-text]]"
             actions="""<$action-setfield $tiddler="$:/temp/fishing/annotation" $value={{{ [<annotationTiddler>get[annotate-text]] }}}/>"""
             popup=<<qualify "$:/state/popup/annotation">>
-            search={{{ [all[shadows+tiddlers]!tag[!]!has[due]has[word]search:word:regexp<CJKV>get[word]unique[]][all[shadows+tiddlers]has[word]!tag[!]!has[due]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]]+[join[|]] }}}
+            search={{{ [all[shadows+tiddlers]!tag[!]!has[due]has[word]search:word:regexp<CJKV>get[word]unique[]] [all[shadows+tiddlers]has[word]!tag[!]!has[due]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]] +[join[|]] }}}
             searchMode="regexp"
+            searchCaseSensitive="no"
             searchClass="tc-dynannotation-search-overlay-blurred"
             searchMinLength={{$:/config/Search/MinLength}}
         >
@@ -23,8 +24,9 @@ title: $:/core/ui/ViewTemplate/catchfish/body
                 selectionPrefix="$:/temp/fishing/selection-prefix"
                 selectionSuffix="$:/temp/fishing/selection-suffix"
                 selectionPopup=<<qualify "$:/state/popup/selection">>
-                search={{{ [all[shadows+tiddlers]!tag[!]has[due]has[word]search:word:regexp<CJKV>get[word]unique[]][all[shadows+tiddlers]!tag[!]has[due]has[word]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]]+[join[|]] }}}
+                search={{{ [all[shadows+tiddlers]!tag[!]has[due]has[word]search:word:regexp<CJKV>get[word]unique[]] [all[shadows+tiddlers]!tag[!]has[due]has[word]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]] +[join[|]] }}}
                 searchMode="regexp"
+                searchCaseSensitive="no"
                 searchClass="tc-dynannotation-search-overlay-animated"
                 searchMinLength={{$:/config/Search/MinLength}}
             >
@@ -36,7 +38,7 @@ title: $:/core/ui/ViewTemplate/catchfish/body
             </$dynannotate>
         </$dynannotate>
         <$list
-            filter="[{$:/temp/fishing/annotation}!is[blank]]"
+            filter="[{$:/temp/fishing/annotation}trim[]!is[blank]]"
             variable="annotation"
         >
             <$reveal
@@ -44,18 +46,17 @@ title: $:/core/ui/ViewTemplate/catchfish/body
                 state=<<qualify "$:/state/popup/annotation">>
                 animate="yes"
                 retain="yes"
-                style="overflow-y:hidden;"
                 class="tc-popup-keep annotation-wrapper"
             >
                 <$list
-                    filter="[all[shadows+tiddlers]!is[draft]annotate-text<annotation>][all[shadows+tiddlers]!is[draft]word<annotation>]"
+                    filter="[all[shadows+tiddlers]!is[draft]annotate-text<annotation>]"
                 >
                     {{||$:/core/ui/StoryTiddlerTemplate}}
                 </$list>
             </$reveal>
         </$list>
         <$list
-            filter="[{$:/temp/fishing/selection}trim[]!is[blank]]"
+            filter="[{$:/temp/fishing/selection}trim[]lowercase[]!is[blank]]"
             variable="selection"
         >
             <$reveal
@@ -74,7 +75,7 @@ title: $:/core/ui/ViewTemplate/catchfish/body
                     </$list>
                 </$let>
                 <$list
-                    filter="[all[shadows+tiddlers]!is[draft]annotate-text<selection>][all[shadows+tiddlers]!is[draft]word<selection>]"
+                    filter="[all[shadows+tiddlers]!is[draft]annotate-text<selection>] [all[shadows+tiddlers]!is[draft]word<selection>]"
                 >
                     {{||$:/core/ui/StoryTiddlerTemplate}}
                 </$list>
