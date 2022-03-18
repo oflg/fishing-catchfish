@@ -1,4 +1,4 @@
 title: $:/config/FishingFilter/Learning/catchfish
 tags: $:/tags/FishingFilter/learning
 
-[{$:/temp/fishing/annotation}match{!!annotate-text}] [{$:/temp/fishing/annotation}match{!!word}] [{$:/temp/fishing/selection}trim[]match{!!annotate-text}] [{$:/temp/fishing/selection}trim[]match{!!word}] +[!is[blank]then{!!title}] -[{!!title}subfilter{$:/plugins/oflg/fishing/fishingpond!!unduepond}]
+[{$:/temp/fishing/excerpt}match{!!annotate-text}] [{$:/temp/fishing/selection}trim[]match{!!word}] +[!is[blank]then{!!title}] -[{!!title}subfilter{$:/plugins/oflg/fishing/fishingpond!!unduepond}]

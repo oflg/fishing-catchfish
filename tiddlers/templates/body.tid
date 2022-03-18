@@ -10,7 +10,7 @@ title: $:/core/ui/ViewTemplate/catchfish/body
     ><!-- Needed for the popups to work -->
         <$dynannotate
             filter="[all[shadows+tiddlers]!is[draft]has[annotate-text]]"
-            actions="""<$action-setfield $tiddler="$:/temp/fishing/annotation" $value={{{ [<annotationTiddler>get[annotate-text]] }}}/>"""
+            actions="""<$action-setfield $tiddler="$:/temp/fishing/excerpt" $value={{{ [<annotationTiddler>get[annotate-text]] }}}/>"""
             popup=<<qualify "$:/state/popup/annotation">>
             search={{{ [all[shadows+tiddlers]!tag[!]!has[due]has[word]search:word:regexp<CJKV>get[word]unique[]] [all[shadows+tiddlers]has[word]!tag[!]!has[due]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]] +[join[|]] }}}
             searchMode="regexp"
@@ -19,7 +19,7 @@ title: $:/core/ui/ViewTemplate/catchfish/body
             searchMinLength={{$:/config/Search/MinLength}}
         >
             <$dynannotate
-                filter="[all[tiddlerstiddlers]!is[draft]has[annotate-text]]"
+                filter=""
                 selection="$:/temp/fishing/selection"
                 selectionPrefix="$:/temp/fishing/selection-prefix"
                 selectionSuffix="$:/temp/fishing/selection-suffix"
@@ -38,8 +38,8 @@ title: $:/core/ui/ViewTemplate/catchfish/body
             </$dynannotate>
         </$dynannotate>
         <$list
-            filter="[{$:/temp/fishing/annotation}trim[]!is[blank]]"
-            variable="annotation"
+            filter="[{$:/temp/fishing/excerpt}!is[blank]]"
+            variable="excerpt"
         >
             <$reveal
                 type="popup"
@@ -49,37 +49,47 @@ title: $:/core/ui/ViewTemplate/catchfish/body
                 class="tc-popup-keep annotation-wrapper"
             >
                 <$list
-                    filter="[all[shadows+tiddlers]!is[draft]annotate-text<annotation>]"
+                    filter="[all[shadows+tiddlers]!is[draft]annotate-text<excerpt>]"
                 >
                     {{||$:/core/ui/StoryTiddlerTemplate}}
                 </$list>
             </$reveal>
         </$list>
-        <$list
-            filter="[{$:/temp/fishing/selection}trim[]lowercase[]!is[blank]]"
-            variable="selection"
+        <$let
+            selection={{$:/temp/fishing/selection}}
+            selectionTrim={{{ [<selection>trim[]] }}}
+            selectionLowercase={{{ [{<selection>lowercase[]] }}}
+            selectionTitlecase={{{ [<selection>titlecase[]] }}}
+            selectionUppercase={{{ [<selection>uppercase[]] }}}
+            selectionTrimLowercase={{{ [<selectionTrim>lowercase[]] }}}
+            selectionTrimTitlecase={{{ [<selectionTrim>titlecase[]] }}}
+            selectionTrimUppercase={{{ [<selectionTrim>uppercase[]] }}}
+            selectionPrefix={{$:/temp/fishing/selection-prefix}}
+            selectionSuffix={{$:/temp/fishing/selection-suffix}}
+            sourceTiddler=<<currentTiddler>>
         >
-            <$reveal
-                type="popup"
-                state=<<qualify "$:/state/popup/selection">>
-                animate="yes"
-                retain="yes"
-                style="overflow-y:hidden;"
-                class="tc-popup-keep annotation-wrapper"
+            <$list
+                filter="[<selectionTrim>!is[blank]]"
+                variable="null"
             >
-                <$let
-                    sourceTiddler=<<currentTiddler>>
+                <$reveal
+                    type="popup"
+                    state=<<qualify "$:/state/popup/selection">>
+                    animate="yes"
+                    retain="yes"
+                    style="overflow-y:hidden;"
+                    class="tc-popup-keep annotation-wrapper"
                 >
                     <$list filter="[all[shadows+tiddlers]tag[$:/tags/Annotation]!is[draft]]">
                         <$transclude/>
                     </$list>
-                </$let>
-                <$list
-                    filter="[all[shadows+tiddlers]!is[draft]annotate-text<selection>] [all[shadows+tiddlers]!is[draft]word<selection>]"
-                >
-                    {{||$:/core/ui/StoryTiddlerTemplate}}
-                </$list>
-            </$reveal>
-        </$list>
+                    <$list
+                        filter="[all[shadows+tiddlers]!is[draft]word<selection>] [all[shadows+tiddlers]!is[draft]word<selectionTrim>] [all[shadows+tiddlers]!is[draft]word<selectionLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionUppercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimUppercase>]"
+                    >
+                        {{||$:/core/ui/StoryTiddlerTemplate}}
+                    </$list>
+                </$reveal>
+            </$list>
+        </$let>
     </div>
 </$list>
