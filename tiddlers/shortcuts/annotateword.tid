@@ -13,7 +13,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-annotateword
         caption="{{||Word}}"
         word=<<selection>>
     >
-        <$action-fishing
+        <$action-learn
             $tiddler=<<createTiddler-title>>
             $grade="-1"
         />

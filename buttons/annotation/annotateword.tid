@@ -12,7 +12,7 @@ tags: $:/tags/Annotation
         word={{{ [{$:/temp/fishing/selection}trim[]] }}}
         priority={{{ [<sourceTiddler>get[priority]else[0]] }}}
     >
-        <$action-fishing
+        <$action-learn
             $tiddler=<<createTiddler-title>>
             $grade="-1"
         />
