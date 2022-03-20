@@ -1,7 +1,5 @@
 title: $:/config/shortcuts/
 
-fishing-annotateword: alt-N
-fishing-excerptsentence: alt-X
 fishing-setcloze: alt-shift-C
 fishing-setexcerpt: alt-shift-X
 fishing-setquestion: alt-shift-Q

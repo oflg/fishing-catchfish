@@ -1,24 +1,21 @@
 title: $:/plugins/oflg/fishing-catchfish/buttons/annotation/excerptsentence
 tags: $:/tags/Annotation
-list-after: $:/plugins/oflg/fishing-catchfish/annotation/excerpt
+icon: $:/core/images/add-comment
+caption: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentence">>/>
+description: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentencetip">>/>
+condition: [<selectionTrim>]
 
-<$button
-    tooltip=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentencetip">>
-    aria-label=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentencetip">>
->
-    <$action-createtiddler
-        $basetitle={{{ [<sourceTiddler>addsuffix[/]addsuffix<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentence">] }}}
-        tags={{{ [<sourceTiddler>format:titlelist[]addsuffix[ ?]] }}}
-        text=<<selection>>
-        caption="{{||Excerpt}}"
-        priority={{{ [<sourceTiddler>get[priority]else[0]] }}}
-        interval={{$:/config/FishingCatchfish/requestInterval}}
-        due={{{ [{$:/config/FishingCatchfish/requestInterval}due[]] }}}
-        review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>
-        annotate-text=<<selection>>
-        annotate-prefix=<<selectionPrefix>>
-        annotate-suffix=<<selectionSuffix>>
-        annotate-colour="LightSkyBlue"
-    />
-    {{$:/plugins/oflg/fishing-catchfish/icons/excerpt}}
-</$button>
+<$action-createtiddler
+    $basetitle={{{ [<sourceTiddler>addsuffix[/]addsuffix<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentence">] }}}
+    tags={{{ [<sourceTiddler>format:titlelist[]addsuffix[ ?]] }}}
+    text=<<selection>>
+    caption="{{||Excerpt}}"
+    priority={{{ [<sourceTiddler>get[priority]else[0]] }}}
+    interval={{$:/config/FishingCatchfish/requestInterval}}
+    due={{{ [{$:/config/FishingCatchfish/requestInterval}due[]] }}}
+    review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>
+    annotate-text=<<selection>>
+    annotate-prefix=<<selectionPrefix>>
+    annotate-suffix=<<selectionSuffix>>
+    annotate-colour="LightSkyBlue"
+/>

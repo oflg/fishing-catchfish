@@ -12,7 +12,7 @@ title: $:/core/ui/ViewTemplate/catchfish/body
             filter="[all[shadows+tiddlers]!is[draft]has[annotate-text]]"
             actions="""<$action-setfield $tiddler="$:/temp/fishing/excerpt" $value={{{ [<annotationTiddler>get[annotate-text]] }}}/>"""
             popup=<<qualify "$:/state/popup/annotation">>
-            search={{{ [all[shadows+tiddlers]!tag[!]!has[due]has[word]search:word:regexp<CJKV>get[word]unique[]] [all[shadows+tiddlers]has[word]!tag[!]!has[due]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]] +[join[|]] }}}
+            search={{{ [all[shadows+tiddlers]!tag[!]!has[due]has[word]search:word:regexp<CJKV>get[word]unique[]] [all[shadows+tiddlers]has[word]!tag[!]!has[due]!search:word:regexp<CJKV>get[word]unique[]join[|]addprefix[\b(]addsuffix[)\b]] +[join[|]] }}}
             searchMode="regexp"
             searchCaseSensitive="no"
             searchClass="tc-dynannotation-search-overlay-blurred"
@@ -21,10 +21,10 @@ title: $:/core/ui/ViewTemplate/catchfish/body
             <$dynannotate
                 filter=""
                 selection="$:/temp/fishing/selection"
-                selectionPrefix="$:/temp/fishing/selection-prefix"
-                selectionSuffix="$:/temp/fishing/selection-suffix"
+                selectionPrefix="$:/temp/fishing/selectionPrefix"
+                selectionSuffix="$:/temp/fishing/selectionSuffix"
                 selectionPopup=<<qualify "$:/state/popup/selection">>
-                search={{{ [all[shadows+tiddlers]!tag[!]has[due]has[word]search:word:regexp<CJKV>get[word]unique[]] [all[shadows+tiddlers]!tag[!]has[due]has[word]!search:word:regexp<CJKV>get[word]unique[]addprefix[\b]addsuffix[\b]] +[join[|]] }}}
+                search={{{ [all[shadows+tiddlers]!tag[!]has[due]has[word]search:word:regexp<CJKV>get[word]unique[]] [all[shadows+tiddlers]!tag[!]has[due]has[word]!search:word:regexp<CJKV>get[word]unique[]join[|]addprefix[\b(]addsuffix[)\b]] +[join[|]] }}}
                 searchMode="regexp"
                 searchCaseSensitive="no"
                 searchClass="tc-dynannotation-search-overlay-animated"
@@ -64,8 +64,8 @@ title: $:/core/ui/ViewTemplate/catchfish/body
             selectionTrimLowercase={{{ [<selectionTrim>lowercase[]] }}}
             selectionTrimTitlecase={{{ [<selectionTrim>titlecase[]] }}}
             selectionTrimUppercase={{{ [<selectionTrim>uppercase[]] }}}
-            selectionPrefix={{$:/temp/fishing/selection-prefix}}
-            selectionSuffix={{$:/temp/fishing/selection-suffix}}
+            selectionPrefix={{$:/temp/fishing/selectionPrefix}}
+            selectionSuffix={{$:/temp/fishing/selectionSuffix}}
             sourceTiddler=<<currentTiddler>>
         >
             <$list
@@ -80,11 +80,20 @@ title: $:/core/ui/ViewTemplate/catchfish/body
                     style="overflow-y:hidden;"
                     class="tc-popup-keep annotation-wrapper"
                 >
-                    <$list filter="[all[shadows+tiddlers]tag[$:/tags/Annotation]!is[draft]]">
-                        <$transclude/>
-                    </$list>
+                    <div
+                        class="tc-editor-toolbar"
+                    >
+                        <$list
+                            filter="[all[shadows+tiddlers]tag[$:/tags/Annotation]!is[draft]]"
+                        >
+                            <$transclude
+                                tiddler="$:/core/ui/EditTemplate/body/toolbar/button"
+                                mode="inline"
+                            />
+                        </$list>
+                    </div>
                     <$list
-                        filter="[all[shadows+tiddlers]!is[draft]word<selection>] [all[shadows+tiddlers]!is[draft]word<selectionTrim>] [all[shadows+tiddlers]!is[draft]word<selectionLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionUppercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimUppercase>]"
+                        filter="[all[shadows+tiddlers]!is[draft]word<selection>] [all[shadows+tiddlers]!is[draft]word<selectionTrim>] [all[shadows+tiddlers]!is[draft]word<selectionLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionUppercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimUppercase>]  [all[shadows+tiddlers]!is[draft]annotate-text<selection>]"
                     >
                         {{||$:/core/ui/StoryTiddlerTemplate}}
                     </$list>
