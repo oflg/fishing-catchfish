@@ -11,7 +11,7 @@ title: $:/core/ui/ViewTemplate/catchfish/body
         <$dynannotate
             filter="[all[shadows+tiddlers]!is[draft]has[annotate-text]]"
             actions="""<$action-setfield $tiddler="$:/temp/fishing/excerpt" $value={{{ [<annotationTiddler>get[annotate-text]] }}}/>"""
-            popup=<<qualify "$:/state/popup/annotation">>
+            popup=<<qualify "$:/state/popup/excerpt">>
             search={{{ [all[shadows+tiddlers]!tag[!]!has[due]has[word]search:word:regexp<CJKV>get[word]unique[]] [all[shadows+tiddlers]has[word]!tag[!]!has[due]!search:word:regexp<CJKV>get[word]unique[]join[|]addprefix[\b(]addsuffix[)\b]] +[join[|]] }}}
             searchMode="regexp"
             searchCaseSensitive="no"
@@ -43,9 +43,10 @@ title: $:/core/ui/ViewTemplate/catchfish/body
         >
             <$reveal
                 type="popup"
-                state=<<qualify "$:/state/popup/annotation">>
+                state=<<qualify "$:/state/popup/excerpt">>
                 animate="yes"
                 retain="yes"
+                updatePopupPosition="yes"
                 class="tc-popup-keep annotation-wrapper"
             >
                 <$list
@@ -77,6 +78,7 @@ title: $:/core/ui/ViewTemplate/catchfish/body
                     state=<<qualify "$:/state/popup/selection">>
                     animate="yes"
                     retain="yes"
+                    updatePopupPosition="yes"
                     style="overflow-y:hidden;"
                     class="tc-popup-keep annotation-wrapper"
                 >
