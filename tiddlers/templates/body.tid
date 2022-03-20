@@ -49,7 +49,7 @@ title: $:/core/ui/ViewTemplate/catchfish/body
                 class="tc-popup-keep annotation-wrapper"
             >
                 <$list
-                    filter="[all[shadows+tiddlers]!is[draft]annotate-text<excerpt>]"
+                    filter="[all[shadows+tiddlers]!is[draft]!<currentTiddler>annotate-text<excerpt>]"
                 >
                     {{||$:/core/ui/StoryTiddlerTemplate}}
                 </$list>
@@ -93,7 +93,7 @@ title: $:/core/ui/ViewTemplate/catchfish/body
                         </$list>
                     </div>
                     <$list
-                        filter="[all[shadows+tiddlers]!is[draft]word<selection>] [all[shadows+tiddlers]!is[draft]word<selectionTrim>] [all[shadows+tiddlers]!is[draft]word<selectionLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionUppercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimUppercase>]  [all[shadows+tiddlers]!is[draft]annotate-text<selection>]"
+                        filter="[all[shadows+tiddlers]!is[draft]word<selection>] [all[shadows+tiddlers]!is[draft]word<selectionTrim>] [all[shadows+tiddlers]!is[draft]word<selectionLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionUppercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimUppercase>]  [all[shadows+tiddlers]!is[draft]annotate-text<selection>] -[<currentTiddler>]"
                     >
                         {{||$:/core/ui/StoryTiddlerTemplate}}
                     </$list>
