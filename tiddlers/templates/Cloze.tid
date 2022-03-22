@@ -11,7 +11,7 @@ title: Cloze
         animate="yes"
     >
         <$reveal
-            default={{$:/temp/fishing!!fish}}
+            default={{{ [list[$:/temp/fishing]first[]] }}}
             type="nomatch"
             text=<<currentTiddler>>
             animate="yes"
@@ -19,7 +19,7 @@ title: Cloze
             {{!!title}}
         </$reveal>
         <$reveal
-            default={{$:/temp/fishing!!fish}}
+            default={{{ [list[$:/temp/fishing]first[]] }}}
             type="match"
             text=<<currentTiddler>>
             animate="yes"

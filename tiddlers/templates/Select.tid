@@ -5,7 +5,7 @@ title: Select
     class="tc-fish-title"
 >
     <$reveal
-        default={{$:/temp/fishing!!fish}}
+        default={{{ [list[$:/temp/fishing]first[]] }}}
         type="nomatch"
         text=<<currentTiddler>>
         animate="yes"
@@ -13,7 +13,7 @@ title: Select
         {{!!title}}
     </$reveal>
     <$reveal
-        default={{$:/temp/fishing!!fish}}
+        default={{{ [list[$:/temp/fishing]first[]] }}}
         type="match"
         text=<<currentTiddler>>
         animate="yes"
