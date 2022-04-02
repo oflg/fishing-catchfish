@@ -3,7 +3,7 @@ tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing-catchfish/icons/setquestion
 caption: {{$:/language/fishing/setquestion}}
 description: {{$:/language/fishing/setquestiontip}}
-condition: [<targetTiddler>!search:caption:literal[Question}}]]
+condition: [<targetTiddler>]
 shortcuts: ((fishing-setquestion))
 
 \define tv-action-refresh-policy() always

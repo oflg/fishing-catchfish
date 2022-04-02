@@ -3,7 +3,7 @@ tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing-catchfish/icons/setselect
 caption: {{$:/language/fishing/setselect}}
 description: {{$:/language/fishing/setselecttip}}
-condition: [<targetTiddler>!search:caption:literal[Select}}]]
+condition: [<targetTiddler>]
 shortcuts: ((fishing-setselect))
 
 \define tv-action-refresh-policy() always

@@ -3,7 +3,7 @@ tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing-catchfish/icons/setcloze
 caption: {{$:/language/fishing/setcloze}}
 description: {{$:/language/fishing/setclozetip}}
-condition: [<targetTiddler>!search:caption:literal[Cloze}}]]
+condition: [<targetTiddler>]
 shortcuts: ((fishing-setcloze))
 
 \define tv-action-refresh-policy() always
