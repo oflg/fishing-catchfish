@@ -24,7 +24,12 @@ title: Select
             text="3"
             animate="yes"
         >
-            {{{ [{!!title}split[__]first[]] }}}
+            <$list
+                filter="[{!!title}split[__]first[]]"
+                variable="question"
+            >
+                <<question>>
+            </$list>
             <$list
                 filter="[{!!title}split[__]]"
                 variable="titleitem"
