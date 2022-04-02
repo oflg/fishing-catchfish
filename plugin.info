@@ -1,6 +1,6 @@
 {
     "author": "oflg",
-    "core-version": ">=5.2.1",
+    "core-version": ">=5.2.2",
     "dependents": "$:/plugins/oflg/fishing $:/plugins/tiddlywiki/dynaview $:/plugins/tiddlywiki/dynannotate",
     "description": "Catch Fish for Fishing",
     "list": "readme license",
@@ -9,5 +9,5 @@
     "plugin-type": "plugin",
     "source": "https://github.com/oflg/fishing-catchfish",
     "title": "$:/plugins/oflg/fishing-catchfish",
-    "version": "0.1.11"
+    "version": "0.2.0"
 }
