@@ -1,12 +1,12 @@
 title: $:/plugins/oflg/fishing-catchfish/buttons/annotation/excerptsentence
 tags: $:/tags/Annotation
 icon: $:/core/images/add-comment
-caption: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentence">>/>
-description: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentencetip">>/>
+caption: {{$:/language/fishing/excerptsentence}}
+description: {{$:/language/fishing/excerptsentencetip}}
 condition: [<selectionTrim>]
 
 <$action-createtiddler
-    $basetitle={{{ [<sourceTiddler>addsuffix[/]addsuffix<lan "$:/plugins/oflg/fishing-catchfish/languages" "excerptsentence">] }}}
+    $basetitle={{{ [<sourceTiddler>addsuffix[/]addsuffix{$:/language/fishing/excerptsentence}] }}}
     tags={{{ [<sourceTiddler>format:titlelist[]addsuffix[ ?]] }}}
     text=<<selection>>
     caption="{{||Excerpt}}"

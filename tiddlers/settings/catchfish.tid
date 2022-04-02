@@ -1,16 +1,16 @@
-caption: <<lan "$:/plugins/oflg/fishing-catchfish/languages" "catchfishsettings">>
+caption: {{$:/language/fishing/catchfishsettings}}
 tags: $:/tags/ControlPanel/Settings/Fishing
 title: $:/core/ui/ControlPanel/Settings/Fishing/fishing-catchfish
 
-!!!<$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setparameter">>/>
+!!!{{$:/language/fishing/setparameter}}
 
-|<$link to="$:/config/FishingCatchfish/requestInterval"><$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setinterval">>/></$link> |<$edit-text tiddler="$:/config/FishingCatchfish/requestInterval" placeholder="1" tag="input"/><br/>@@color:red;font-size:10px;<$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setintervaltip">>/>@@ |
+|<$link to="$:/config/FishingCatchfish/requestInterval">{{$:/language/fishing/setinterval}}</$link> |<$edit-text tiddler="$:/config/FishingCatchfish/requestInterval" placeholder="1" tag="input"/><br/>@@color:red;font-size:10px;{{$:/language/fishing/setintervaltip}}@@ |
 
-!!!<$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "annotate">>/>
+!!!{{$:/language/fishing/annotate}}
 
-|<$link to="$:/config/FishingCatchfish/annotateUrlFilter"><$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "urlfilter">>/></$link> |<$edit-text tiddler="$:/config/FishingCatchfish/annotateUrlFilter" tag="textarea" class="tc-edit-texteditor"/> |
+|<$link to="$:/config/FishingCatchfish/annotateUrlFilter">{{$:/language/fishing/urlfilter}}</$link> |<$edit-text tiddler="$:/config/FishingCatchfish/annotateUrlFilter" tag="textarea" class="tc-edit-texteditor"/> |
 
 !!!{{$:/language/ControlPanel/Cascades/Caption}}
 
-<$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setbodytip">>/>
+{{$:/language/fishing/setbodytip}}
 {{$:/tags/FishingFilter/annotation||$:/snippets/ListTaggedCascade}}

@@ -1,8 +1,8 @@
 title: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setcloze
 tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing-catchfish/icons/setcloze
-caption: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setcloze">>/>
-description: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setclozetip">>/>
+caption: {{$:/language/fishing/setcloze}}
+description: {{$:/language/fishing/setclozetip}}
 condition: [<targetTiddler>!search:caption:literal[Cloze}}]]
 shortcuts: ((fishing-setcloze))
 

@@ -15,7 +15,7 @@ tags: $:/tags/QuestionTemplate
         animate="yes"
     >
         <span
-            class="tc-fish-title"
+            class="tc-tiddler-body"
         >
             <main style="width:100%;overflow:hidden;">
                 <iframe

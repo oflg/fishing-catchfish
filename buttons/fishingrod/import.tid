@@ -9,8 +9,8 @@ list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
     animate="yes"
 >
     <$button
-        tooltip=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "importtip">>
-        aria-label=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "importtip">>
+        tooltip={{$:/language/fishing/importtip}}
+        aria-label={{$:/language/fishing/importtip}}
         popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingrod/fishingbait">>
         class="tc-btn-invisible"
         style="margin:0;padding:0 5px;"

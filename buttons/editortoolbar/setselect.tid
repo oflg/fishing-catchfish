@@ -1,8 +1,8 @@
 title: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setselect
 tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing-catchfish/icons/setselect
-caption: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setselect">>/>
-description: <$text text=<<lan "$:/plugins/oflg/fishing-catchfish/languages" "setselecttip">>/>
+caption: {{$:/language/fishing/setselect}}
+description: {{$:/language/fishing/setselecttip}}
 condition: [<targetTiddler>!search:caption:literal[Select}}]]
 shortcuts: ((fishing-setselect))
 
