@@ -29,7 +29,8 @@ shortcuts: ((fishing-setexcerpt))
                 $param="?"
             />
             <$action-setfield
-                draft.title={{{ [{$:/temp/fishing!!save-selection}!is[blank]]~[<targetTiddler>get[draft.title]] }}}
+                draft.title={{{ [{$:/temp/fishing!!save-selection}!is[blank]]
+                                ~[<targetTiddler>get[draft.title]] }}}
                 interval={{$:/plugins/oflg/fishing-catchfish/data!!requestInterval}}
                 due={{{ [{$:/plugins/oflg/fishing-catchfish/data!!requestInterval}due[]] }}}
                 caption="{{||Excerpt}}"

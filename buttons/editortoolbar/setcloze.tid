@@ -30,7 +30,8 @@ shortcuts: ((fishing-setcloze))
             />
             <$action-setfield
                 $tiddler=<<targetTiddler>>
-                draft.title={{{ [{$:/temp/fishing!!save-selection}!is[blank]]~[<targetTiddler>get[draft.title]] }}}
+                draft.title={{{ [{$:/temp/fishing!!save-selection}!is[blank]]
+                                ~[<targetTiddler>get[draft.title]] }}}
                 caption="{{||Cloze}}"
             />
         </$fieldmangler>

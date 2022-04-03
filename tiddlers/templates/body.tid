@@ -47,6 +47,7 @@ title: $:/core/ui/ViewTemplate/catchfish/body
                 animate="yes"
                 retain="yes"
                 updatePopupPosition="yes"
+                positionAllowNegative="yes"
                 class="tc-popup-keep annotation-wrapper"
             >
                 <$list
@@ -79,6 +80,7 @@ title: $:/core/ui/ViewTemplate/catchfish/body
                     animate="yes"
                     retain="yes"
                     updatePopupPosition="yes"
+                    positionAllowNegative="yes"
                     style="overflow-y:hidden;"
                     class="tc-popup-keep annotation-wrapper"
                 >

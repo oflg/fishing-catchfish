@@ -6,7 +6,7 @@ description: {{$:/language/fishing/annotatewordtip}}
 condition: [<selectionTrim>]
 
 <$action-createtiddler
-    $basetitle={{{ [{$:/language/fishing/annotateword">addsuffix[/]addsuffix<selectionTrim>] }}}
+    $basetitle={{{ [{$:/language/fishing/annotateword}addsuffix[/]addsuffix<selectionTrim>] }}}
     tags="?"
     caption="{{||Word}}"
     word=<<selectionTrim>>
