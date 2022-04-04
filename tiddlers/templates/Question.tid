@@ -1,8 +1,8 @@
 tags: $:/tags/QuestionTemplate
 title: Question
 
-<span
-    class="tc-fish-title"
+<div
+    class="tc-tiddler-body"
 >
     {{!!title}}
     <$reveal
@@ -68,4 +68,4 @@ title: Question
             </$reveal>
         </$reveal>
     </$reveal>
-</span>
+</div>

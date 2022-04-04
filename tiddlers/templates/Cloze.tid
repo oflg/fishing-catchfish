@@ -1,8 +1,8 @@
 tags: $:/tags/QuestionTemplate
 title: Cloze
 
-<span
-    class="tc-fish-title"
+<div
+    class="tc-tiddler-body"
 >
     <$reveal
         state=<<folded-state>>
@@ -84,4 +84,4 @@ title: Cloze
     >
         {{!!title}}
     </$reveal>
-</span>
+</div>

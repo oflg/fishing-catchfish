@@ -1,8 +1,8 @@
 tags: $:/tags/QuestionTemplate
 title: Select
 
-<span
-    class="tc-fish-title"
+<div
+    class="tc-tiddler-body"
 >
     <$reveal
         default={{{ [list[$:/temp/fishing]first[]] }}}
@@ -140,4 +140,4 @@ title: Select
             {{!!title}}
         </$reveal>
     </$reveal>
-</span>
+</div>
