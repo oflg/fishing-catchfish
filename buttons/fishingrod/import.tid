@@ -1,35 +1,9 @@
-title: $:/plugins/oflg/fishing-catchfish/buttons/fishingrod/import
-tags: $:/tags/FishingGrod/Button
+title: $:/plugins/oflg/fishing/buttons/fishingrod/import
+tags: $:/tags/FishingGrod
 list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
+popup: $:/plugins/oflg/fishing/buttons/fishingrod/popup/import
+icon: $:/core/images/import-button
+description: {{$:/language/fishing/importtip}}
+condition: [all[shadows+tiddlers]tag[$:/tags/FishingBait]!is[draft]first[]]
+button-classes: fishingrod-button
 
-<$reveal
-    default={{{ [all[shadows+tiddlers]tag[$:/tags/FishingBait/Button]!is[draft]] }}}
-    type="nomatch"
-    text=""
-    animate="yes"
->
-    <$button
-        tooltip={{$:/language/fishing/importtip}}
-        aria-label={{$:/language/fishing/importtip}}
-        popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingrod/fishingbait">>
-        class="tc-btn-invisible"
-        style="margin:0;padding:0 5px;"
-    >
-        {{$:/core/images/import-button}}
-    </$button>
-</$reveal>
-<$reveal
-    state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingrod/fishingbait">>
-    type="popup"
-    position="below"
-    animate="yes"
->
-    <div
-        class="tc-popup-keep tc-drop-down"
-        style="min-width:0;"
-    >
-        <$list filter="[all[shadows+tiddlers]tag[$:/tags/FishingBait/Button]!is[draft]]">
-            <$transclude/>
-        </$list>
-    </div>
-</$reveal>
