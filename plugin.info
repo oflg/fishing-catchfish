@@ -2,7 +2,7 @@
     "author": "oflg",
     "core-version": ">=5.2.2",
     "dependents": "$:/plugins/oflg/fishing $:/plugins/tiddlywiki/dynaview $:/plugins/tiddlywiki/dynannotate",
-    "description": "Catch Fish for Fishing",
+    "description": "Integrate Incremental Learning into TiddlyWiki",
     "list": "readme license",
     "name": "Fishing Catchfish",
     "parent-plugin": "$:/plugins/oflg/fishing",
