@@ -1,5 +1,6 @@
 tags: $:/tags/QuestionTemplate
 title: Cloze
+code-body: yes
 
 <div
     class="tc-tiddler-body"

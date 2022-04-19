@@ -1,3 +1,4 @@
 title: Excerpt
+code-body: yes
 
 {{{ [{!!title}split[/]last[]] }}}

@@ -1,5 +1,6 @@
 tags: $:/tags/QuestionTemplate
 title: Question
+code-body: yes
 
 <div
     class="tc-tiddler-body"
