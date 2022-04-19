@@ -18,5 +18,8 @@ setparameter: Parameter
 setinterval: Initial interval day of Excerpt Tiddlers
 setintervaltip: Must be a positive integer
 importtip: Import learning materials
+colorpattern: Color pattern of excerpt sentence
+multiply: mix
+normal: cover
 urlfilter: URL of Word template
 setbodytip: Condition for showing annotation of a tiddler.

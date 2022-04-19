@@ -10,6 +10,10 @@ title: $:/core/ui/ControlPanel/Settings/Fishing/fishing-catchfish
 
 |<$link to="$:/config/FishingCatchfish/annotateUrlFilter">{{$:/language/fishing/urlfilter}}</$link> |<$edit-text tiddler="$:/config/FishingCatchfish/annotateUrlFilter" tag="textarea" class="tc-edit-texteditor"/> |
 
+<$link to="$:/config/FishingCatchfish/excerptColorPattern">{{$:/language/fishing/colorpattern}}</$link>
+
+<$select tiddler="$:/config/FishingCatchfish/excerptColorPattern" default="multiply"><$list filter="[list[$:/config/FishingCatchfish/excerptColorPattern]]" variable="mix-blend-mode"><option value=<<mix-blend-mode>>><$text text={{{ [<mix-blend-mode>addprefix[$:/language/fishing/]get[text]] }}}></option></$list></$select>
+
 !!!{{$:/language/ControlPanel/Cascades/Caption}}
 
 {{$:/language/fishing/setbodytip}}
