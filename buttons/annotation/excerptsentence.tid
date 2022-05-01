@@ -18,4 +18,5 @@ condition: [<selectionTrim>]
     annotate-prefix=<<selectionPrefix>>
     annotate-suffix=<<selectionSuffix>>
     annotate-colour="LightSkyBlue"
+    annotate-blend-mode={{$:/config/FishingCatchfish/excerptColorPattern}}
 />
