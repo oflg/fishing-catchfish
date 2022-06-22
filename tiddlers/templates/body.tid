@@ -13,30 +13,21 @@ code-body: yes
             filter="[all[shadows+tiddlers]!is[draft]has[annotate-text]]"
             actions="""<$action-setfield $tiddler="$:/temp/fishing/excerpt" $value={{{ [<annotationTiddler>get[annotate-text]] }}}/>"""
             popup=<<qualify "$:/state/popup/excerpt">>
-            search={{{ [all[shadows+tiddlers]!tag[!]!has[due]has[word]search:word:regexp<CJKV>get[word]unique[]] [all[shadows+tiddlers]has[word]!tag[!]!has[due]!search:word:regexp<CJKV>get[word]unique[]join[|]addprefix[\b(]addsuffix[)\b]] +[join[|]] }}}
+            selection="$:/temp/fishing/selection"
+            selectionPrefix="$:/temp/fishing/selectionPrefix"
+            selectionSuffix="$:/temp/fishing/selectionSuffix"
+            selectionPopup=<<qualify "$:/state/popup/selection">>
+            search={{{ [all[shadows+tiddlers]!tag[!]has[word]get[word]unique[]search:title:regexp<CJKV>] [all[shadows+tiddlers]!tag[!]has[word]!search:word:regexp<CJKV>get[word]unique[]join[|]addprefix[\b(]addsuffix[)\b]] +[join[|]] }}}
             searchMode="regexp"
             searchCaseSensitive="no"
-            searchClass="tc-dynannotation-search-overlay-blurred"
+            searchClass="tc-dynannotation-search-overlay-animated"
             searchMinLength={{$:/config/Search/MinLength}}
         >
-            <$dynannotate
-                filter=""
-                selection="$:/temp/fishing/selection"
-                selectionPrefix="$:/temp/fishing/selectionPrefix"
-                selectionSuffix="$:/temp/fishing/selectionSuffix"
-                selectionPopup=<<qualify "$:/state/popup/selection">>
-                search={{{ [all[shadows+tiddlers]!tag[!]has[due]has[word]search:word:regexp<CJKV>get[word]unique[]] [all[shadows+tiddlers]!tag[!]has[due]has[word]!search:word:regexp<CJKV>get[word]unique[]join[|]addprefix[\b(]addsuffix[)\b]] +[join[|]] }}}
-                searchMode="regexp"
-                searchCaseSensitive="no"
-                searchClass="tc-dynannotation-search-overlay-animated"
-                searchMinLength={{$:/config/Search/MinLength}}
+            <$transclude
+                mode="block"
             >
-                <$transclude
-                    mode="block"
-                >
-                    <$transclude tiddler="$:/language/MissingTiddler/Hint"/>
-                </$transclude>
-            </$dynannotate>
+                <$transclude tiddler="$:/language/MissingTiddler/Hint"/>
+            </$transclude>
         </$dynannotate>
         <$list
             filter="[{$:/temp/fishing/excerpt}!is[blank]]"
