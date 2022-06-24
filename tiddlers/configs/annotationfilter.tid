@@ -1,0 +1,6 @@
+title: $:/config/FishingFilter/annotation
+tags: $:/tags/FishingFilter/annotation
+
+[<currentTiddler>tag[?]]
+[<currentTiddler>tag[!]]
+[list[$:/temp/fishing]match<currentTiddler>]

@@ -4,5 +4,5 @@ tags: $:/tags/FishingFilter/learning
 [{$:/temp/fishing/excerpt}match{!!annotate-text}]
 [{$:/temp/fishing/selection}trim[]match{!!word}]
 [{$:/temp/fishing/selection}trim[]lowercase[]match{!!word}]
-+[!is[blank]then{!!title}]
--[{!!title}subfilter{$:/plugins/oflg/fishing/fishingpond!!unduepond}]
++[!is[blank]!tag[!]then<currentTiddler>]
+-[<currentTiddler>subfilter{$:/config/fishingpond/unduepond}]
