@@ -5,7 +5,7 @@ title: $:/plugins/oflg/fishing-catchfish/styles.css
 
 .annotation-wrapper {
     min-width: 500px;
-    padding:4px 10px;
+    marging:4px 10px;
     transform: scale(0.7);
     transform-origin: top left;
 }
