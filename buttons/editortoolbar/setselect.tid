@@ -30,7 +30,7 @@ shortcuts: ((fishing-setselect))
             />
             <$action-setfield
                 $tiddler=<<targetTiddler>>
-                draft.title={{{ [{$:/temp/fishing!!save-selection}!is[blank]] ~[<targetTiddler>get[draft.title]] }}}
+                draft.title={{{ [{$:/temp/fishing!!save-selection}search-replace:g:regexp[\n],[<br>]!is[blank]] ~[<targetTiddler>get[draft.title]] }}}
                 caption="{{||Select}}"
             />
         </$fieldmangler>
