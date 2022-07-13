@@ -25,7 +25,7 @@ $:/state/folded/$(currentTiddler)$
         class={{{ tc-tiddler-frame tc-tiddler-view-frame [<currentTiddler>is[tiddler]then[tc-tiddler-exists]] [<currentTiddler>is[missing]!is[shadow]then[tc-tiddler-missing]] [<currentTiddler>is[shadow]then[tc-tiddler-exists tc-tiddler-shadow]] [<currentTiddler>is[shadow]is[tiddler]then[tc-tiddler-overridden-shadow]] [<currentTiddler>is[system]then[tc-tiddler-system]] [{!!class}] [<currentTiddler>tags[]encodeuricomponent[]addprefix[tc-tagged-]] +[join[ ]] }}}
     >
         <$list
-            filter="[[$:/core/ui/ViewTemplate/title]] [[$:/core/ui/ViewTemplate/subtitle]] [[$:/core/ui/ViewTemplate/tags]] [[$:/core/ui/ViewTemplate/fishing/fold]]"
+            filter="[[$:/core/ui/ViewTemplate/title]] [[$:/core/ui/ViewTemplate/subtitle]] [[$:/core/ui/ViewTemplate/tags]] [[$:/core/ui/ViewTemplate/unfold]] [[$:/core/ui/ViewTemplate/fishing/fold]]"
             variable="listItem"
         >
             <$transclude tiddler=<<listItem>>/>
@@ -110,14 +110,14 @@ $:/state/folded/$(currentTiddler)$
                 selectionPrefix="$:/temp/fishing/selectionPrefix"
                 selectionSuffix="$:/temp/fishing/selectionSuffix"
                 selectionPopup=<<qualify "$:/state/popup/selection">>
-                search={{{ [all[shadows+tiddlers]!tag[!]has[word]get[word]unique[]regexp<CJKV>] [all[shadows+tiddlers]!tag[!]has[word]!regexp<CJKV>get[word]unique[]join[|]addprefix[\b(]addsuffix[)\b]] +[join[|]] }}}
+                search={{{ [all[shadows+tiddlers]!tag[!]has[word]get[word]unique[]regexp<CJKV>] [all[shadows+tiddlers]!tag[!]has[word]get[word]!regexp<CJKV>unique[]join[|]addprefix[\b(]addsuffix[)\b]] +[join[|]] }}}
                 searchMode="regexp"
                 searchCaseSensitive="no"
                 searchClass="tc-dynannotation-search-overlay-animated"
                 searchMinLength={{$:/config/Search/MinLength}}
             >
                 <$list
-                    filter="[all[shadows+tiddlers]tag[$:/tags/ViewTemplate]![$:/core/ui/ViewTemplate/title]![$:/core/ui/ViewTemplate/subtitle]![$:/core/ui/ViewTemplate/tags]![$:/core/ui/ViewTemplate/fishing/fold]!has[draft.of]]"
+                    filter="[all[shadows+tiddlers]tag[$:/tags/ViewTemplate]![$:/core/ui/ViewTemplate/title]![$:/core/ui/ViewTemplate/subtitle]![$:/core/ui/ViewTemplate/tags]![$:/core/ui/ViewTemplate/unfold]![$:/core/ui/ViewTemplate/fishing/fold]!has[draft.of]]"
                     variable="listItem"
                 >
                     <$transclude tiddler=<<listItem>> mode="block"/>
