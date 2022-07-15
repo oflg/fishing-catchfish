@@ -5,4 +5,4 @@ tags: $:/tags/FishingFilter/learning
 [{$:/temp/fishing/selection}trim[]match{!!word}]
 [{$:/temp/fishing/selection}trim[]lowercase[]match{!!word}]
 +[!is[blank]then<currentTiddler>!tag[!]]
--[<currentTiddler>get[review]interval[]!match[0]then<currentTiddler>]
+-[<currentTiddler>get[review]format:date[YYYY0MM0DD]compare:date:eq<now YYYY0MM0DD>then<currentTiddler>else[]]
