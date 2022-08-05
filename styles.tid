@@ -5,9 +5,12 @@ title: $:/plugins/oflg/fishing-catchfish/styles.css
 
 .annotation-wrapper {
     min-width: 500px;
-    marging:4px 10px;
     transform: scale(0.7);
     transform-origin: top left;
+    margin: 15px 0;
+    padding: 10px;
+    overflow-y:hidden;
+    user-select:none;
 }
 
 button.tc-tag-label, span.tc-tag-label {

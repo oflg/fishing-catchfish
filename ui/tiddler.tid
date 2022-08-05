@@ -2,10 +2,6 @@ title: $:/plugins/oflg/fishing-catchfish/ui/ViewTemplate/tiddler
 code-body: yes
 
 \whitespace trim
-\define folded-state()
-$:/state/folded/$(currentTiddler)$
-\end
-\define cancel-delete-tiddler-actions(message) <$action-sendmessage $message="tm-$message$-tiddler"/>
 \define CJKV() [\u2E80-\u9FFF]
 \define select-actions()
 <$action-setfield
@@ -13,123 +9,92 @@ $:/state/folded/$(currentTiddler)$
     $value={{{ [<annotationTiddler>get[annotate-text]] }}}
 />
 \end
-\import [all[shadows+tiddlers]tag[$:/tags/Macro/View]!has[draft.of]]
 
-<$vars
-    storyTiddler=<<currentTiddler>>
-    tiddlerInfoState=<<qualify "$:/state/popup/tiddler-info">>
+<div
+    style="position:relative;"
 >
-    <div
-        data-tiddler-title=<<currentTiddler>>
-        data-tags={{!!tags}}
-        class={{{ tc-tiddler-frame tc-tiddler-view-frame [<currentTiddler>is[tiddler]then[tc-tiddler-exists]] [<currentTiddler>is[missing]!is[shadow]then[tc-tiddler-missing]] [<currentTiddler>is[shadow]then[tc-tiddler-exists tc-tiddler-shadow]] [<currentTiddler>is[shadow]is[tiddler]then[tc-tiddler-overridden-shadow]] [<currentTiddler>is[system]then[tc-tiddler-system]] [{!!class}] [<currentTiddler>tags[]encodeuricomponent[]addprefix[tc-tagged-]] +[join[ ]] }}}
+    <$let
+        selectionText={{$:/temp/fishing/selection}}
+        selectionTrim={{{ [<selectionText>trim[]] }}}
     >
         <$list
-            filter="[[$:/core/ui/ViewTemplate/title]] [[$:/core/ui/ViewTemplate/subtitle]] [[$:/core/ui/ViewTemplate/tags]] [[$:/core/ui/ViewTemplate/unfold]] [[$:/plugins/oflg/fishing-catchfish/ui/ViewTemplate/fishing/fold]]"
-            variable="listItem"
+            filter="[<selectionTrim>!is[blank]]"
+            variable="null"
         >
-            <$transclude tiddler=<<listItem>>/>
-        </$list>
-        <div
-            style="position:relative;"
-        ><!-- Needed for the popups to work -->
             <$let
-                selection={{$:/temp/fishing/selection}}
-                selectionTrim={{{ [<selection>trim[]] }}}
+                selectionLowercase={{{ [{<selectionText>lowercase[]] }}}
+                selectionTitlecase={{{ [<selectionText>titlecase[]] }}}
+                selectionUppercase={{{ [<selectionText>uppercase[]] }}}
+                selectionTrimLowercase={{{ [<selectionTrim>lowercase[]] }}}
+                selectionTrimTitlecase={{{ [<selectionTrim>titlecase[]] }}}
+                selectionTrimUppercase={{{ [<selectionTrim>uppercase[]] }}}
+                selectionPrefix={{$:/temp/fishing/selectionPrefix}}
+                selectionSuffix={{$:/temp/fishing/selectionSuffix}}
+                sourceTiddler=<<currentTiddler>>
             >
-                <$list
-                    filter="[<selectionTrim>!is[blank]]"
-                    variable="null"
+                <$reveal
+                    type="popup"
+                    state=<<qualify "$:/state/popup/selection">>
+                    position="belowleft"
+                    updatePopupPosition="yes"
+                    positionAllowNegative="no"
+                    class="tc-popup-keep annotation-wrapper"
                 >
-                    <$let
-                        selectionLowercase={{{ [{<selection>lowercase[]] }}}
-                        selectionTitlecase={{{ [<selection>titlecase[]] }}}
-                        selectionUppercase={{{ [<selection>uppercase[]] }}}
-                        selectionTrimLowercase={{{ [<selectionTrim>lowercase[]] }}}
-                        selectionTrimTitlecase={{{ [<selectionTrim>titlecase[]] }}}
-                        selectionTrimUppercase={{{ [<selectionTrim>uppercase[]] }}}
-                        selectionPrefix={{$:/temp/fishing/selectionPrefix}}
-                        selectionSuffix={{$:/temp/fishing/selectionSuffix}}
-                        sourceTiddler=<<currentTiddler>>
+                    <div
+                        class="tc-drop-down tc-popup-keep"
+                        style="min-width:0;"
                     >
-                        <$reveal
-                            type="popup"
-                            state=<<qualify "$:/state/popup/selection">>
-                            position="belowright"
-                            updatePopupPosition="yes"
-                            positionAllowNegative="no"
-                            class="tc-popup-keep annotation-wrapper"
-                            style="overflow-y:hidden;"
+                        <$list
+                            filter="[all[shadows+tiddlers]tag[$:/tags/Annotation]!is[draft]]"
                         >
-                            <div
-                                class="tc-editor-toolbar"
-                            >
-                                <$list
-                                    filter="[all[shadows+tiddlers]tag[$:/tags/Annotation]!is[draft]]"
-                                >
-                                    <$transclude
-                                        tiddler="$:/core/ui/EditTemplate/body/toolbar/button"
-                                        mode="inline"
-                                    />
-                                </$list>
-                            </div>
-                            <$list
-                                filter="[all[shadows+tiddlers]!is[draft]word<selection>] [all[shadows+tiddlers]!is[draft]word<selectionTrim>] [all[shadows+tiddlers]!is[draft]word<selectionLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionUppercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimUppercase>] [all[shadows+tiddlers]!is[draft]annotate-text<selection>] -[<currentTiddler>]"
-                            >
-                                {{||$:/core/ui/ViewTemplate}}
-                            </$list>
-                        </$reveal>
-                    </$let>
-                </$list>
-            </$let>
-            <$reveal
-                type="popup"
-                state=<<qualify "$:/state/popup/excerpt">>
-                position="below"
-                updatePopupPosition="yes"
-                positionAllowNegative="no"
-                class="tc-popup-keep annotation-wrapper"
-                style="overflow-y:hidden;"
-            >
-                <$list
-                    filter="[{$:/temp/fishing/excerpt}!is[blank]]"
-                    variable="excerpt"
-                >
+                            <$transclude
+                                tiddler="$:/plugins/oflg/fishing/ui/ViewTemplate/fishing/button"
+                            />
+                        </$list>
+                    </div>
+                    <br/>
                     <$list
-                        filter="[all[shadows+tiddlers]!is[draft]!<currentTiddler>annotate-text<excerpt>]"
+                        filter="[all[shadows+tiddlers]!is[draft]word<selectionText>] [all[shadows+tiddlers]!is[draft]word<selectionTrim>] [all[shadows+tiddlers]!is[draft]word<selectionLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionUppercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimLowercase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimTitlecase>] [all[shadows+tiddlers]!is[draft]word<selectionTrimUppercase>] [all[shadows+tiddlers]!is[draft]annotate-text<selectionText>] -[<currentTiddler>]"
                     >
                         {{||$:/core/ui/ViewTemplate}}
                     </$list>
-                </$list>
-            </$reveal>
-            <$dynannotate
-                filter="[all[shadows+tiddlers]!is[draft]has[annotate-text]]"
-                actions=<<select-actions>>
-                popup=<<qualify "$:/state/popup/excerpt">>
-                selection="$:/temp/fishing/selection"
-                selectionPrefix="$:/temp/fishing/selectionPrefix"
-                selectionSuffix="$:/temp/fishing/selectionSuffix"
-                selectionPopup=<<qualify "$:/state/popup/selection">>
-                search={{{ [all[shadows+tiddlers]!tag[!]has[word]get[word]unique[]regexp<CJKV>] [all[shadows+tiddlers]!tag[!]has[word]get[word]!regexp<CJKV>unique[]join[|]addprefix[\b(]addsuffix[)\b]] +[join[|]] }}}
-                searchMode="regexp"
-                searchCaseSensitive="no"
-                searchClass="tc-dynannotation-search-overlay-animated"
-                searchMinLength={{$:/config/Search/MinLength}}
+                </$reveal>
+            </$let>
+        </$list>
+    </$let>
+    <$list
+        filter="[{$:/temp/fishing/excerpt}!is[blank]]"
+        variable="excerpt"
+    >
+        <$reveal
+            type="popup"
+            state=<<qualify "$:/state/popup/excerpt">>
+            position="belowleft"
+            updatePopupPosition="yes"
+            positionAllowNegative="no"
+            class="tc-popup-keep annotation-wrapper"
+        >
+            <$list
+                filter="[all[shadows+tiddlers]!is[draft]!<currentTiddler>annotate-text<excerpt>]"
             >
-                <div
-                    data-selection-action-title=<<currentTiddler>>
-                >
-                    <$list
-                        filter="[all[shadows+tiddlers]tag[$:/tags/ViewTemplate]![$:/core/ui/ViewTemplate/title]![$:/core/ui/ViewTemplate/subtitle]![$:/core/ui/ViewTemplate/tags]![$:/core/ui/ViewTemplate/unfold]![$:/plugins/oflg/fishing-catchfish/ui/ViewTemplate/fishing/fold]!has[draft.of]]"
-                        variable="listItem"
-                    >
-                        <$transclude
-                            tiddler=<<listItem>>
-                            mode="block"
-                        />
-                    </$list>
-                </div>
-            </$dynannotate>
-        </div>
-    </div>
-</$vars>
+                {{||$:/core/ui/ViewTemplate}}
+            </$list>
+        </$reveal>
+    </$list>
+    <$dynannotate
+        filter="[all[shadows+tiddlers]!is[draft]has[annotate-text]]"
+        actions=<<select-actions>>
+        popup=<<qualify "$:/state/popup/excerpt">>
+        selection="$:/temp/fishing/selection"
+        selectionPrefix="$:/temp/fishing/selectionPrefix"
+        selectionSuffix="$:/temp/fishing/selectionSuffix"
+        selectionPopup=<<qualify "$:/state/popup/selection">>
+        search={{{ [all[shadows+tiddlers]!tag[!]!<currentTiddler>has[word]get[word]unique[]regexp<CJKV>] [all[shadows+tiddlers]!tag[!]!<currentTiddler>has[word]get[word]unique[]!regexp<CJKV>join[|]addprefix[\b(]addsuffix[)\b]] +[join[|]] }}}
+        searchMode="regexp"
+        searchCaseSensitive="no"
+        searchClass="tc-dynannotation-search-overlay-animated"
+        searchMinLength={{$:/config/Search/MinLength}}
+    >
+        {{||$:/core/ui/ViewTemplate}}
+    </$dynannotate>
+</div>
