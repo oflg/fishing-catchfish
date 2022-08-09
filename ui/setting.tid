@@ -1,6 +1,6 @@
 caption: {{$:/language/fishing/catchfishsettings}}
 tags: $:/tags/ControlPanel/Settings/Fishing
-title: $:/core/ui/ControlPanel/Settings/Fishing/fishing-catchfish
+title: $:/plugins/oflg/fishing-catchfish/ui/ControlPanel/Settings/Fishing/fishing-catchfish
 
 !!!{{$:/language/fishing/setparameter}}
 

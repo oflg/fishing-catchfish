@@ -1,18 +1,33 @@
 title: $:/plugins/oflg/fishing-catchfish/ui/ViewTemplate/tiddler
 code-body: yes
 
-\whitespace trim
 \define CJKV() [\u2E80-\u9FFF]
-\define select-actions()
+\define click-excerpt-actions()
 <$action-setfield
     $tiddler="$:/temp/fishing/excerpt"
-    $value={{{ [<annotationTiddler>get[annotate-text]] }}}
+    text={{{ [<annotationTiddler>get[annotate-text]] }}}
 />
 \end
 
 <div
     style="position:relative;"
 >
+    <$dynannotate
+        filter="[all[shadows+tiddlers]!is[draft]has[annotate-text]]"
+        actions=<<click-excerpt-actions>>
+        popup=<<qualify "$:/state/popup/excerpt">>
+        selection="$:/temp/fishing/selection"
+        selectionPrefix="$:/temp/fishing/selectionPrefix"
+        selectionSuffix="$:/temp/fishing/selectionSuffix"
+        selectionPopup=<<qualify "$:/state/popup/selection">>
+        search={{{ [all[shadows+tiddlers]!tag[!]!<currentTiddler>has[word]get[word]unique[]regexp<CJKV>] [all[shadows+tiddlers]!tag[!]!<currentTiddler>has[word]get[word]unique[]!regexp<CJKV>join[|]addprefix[\b(]addsuffix[)\b]] +[join[|]] }}}
+        searchMode="regexp"
+        searchCaseSensitive="no"
+        searchClass="tc-dynannotation-search-overlay-animated"
+        searchMinLength={{$:/config/Search/MinLength}}
+    >
+        {{||$:/core/ui/ViewTemplate}}
+    </$dynannotate>
     <$let
         selectionText={{$:/temp/fishing/selection}}
         selectionTrim={{{ [<selectionText>trim[]] }}}
@@ -81,20 +96,4 @@ code-body: yes
             </$list>
         </$reveal>
     </$list>
-    <$dynannotate
-        filter="[all[shadows+tiddlers]!is[draft]has[annotate-text]]"
-        actions=<<select-actions>>
-        popup=<<qualify "$:/state/popup/excerpt">>
-        selection="$:/temp/fishing/selection"
-        selectionPrefix="$:/temp/fishing/selectionPrefix"
-        selectionSuffix="$:/temp/fishing/selectionSuffix"
-        selectionPopup=<<qualify "$:/state/popup/selection">>
-        search={{{ [all[shadows+tiddlers]!tag[!]!<currentTiddler>has[word]get[word]unique[]regexp<CJKV>] [all[shadows+tiddlers]!tag[!]!<currentTiddler>has[word]get[word]unique[]!regexp<CJKV>join[|]addprefix[\b(]addsuffix[)\b]] +[join[|]] }}}
-        searchMode="regexp"
-        searchCaseSensitive="no"
-        searchClass="tc-dynannotation-search-overlay-animated"
-        searchMinLength={{$:/config/Search/MinLength}}
-    >
-        {{||$:/core/ui/ViewTemplate}}
-    </$dynannotate>
 </div>
