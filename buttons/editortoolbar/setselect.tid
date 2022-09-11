@@ -1,4 +1,5 @@
 title: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setselect
+list-after: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setcloze
 tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing-catchfish/icons/setselect
 caption: {{$:/language/fishing/setselect}}

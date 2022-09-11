@@ -1,11 +1,11 @@
-title: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setquestion
-list-after: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setexcerpt
+title: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setword
+list-after: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setselect
 tags: $:/tags/EditorToolbar
-icon: $:/plugins/oflg/fishing-catchfish/icons/setquestion
-caption: {{$:/language/fishing/setquestion}}
-description: {{$:/language/fishing/setquestiontip}}
+icon: $:/plugins/oflg/fishing-catchfish/icons/setword
+caption: {{$:/language/fishing/setword}}
+description: {{$:/language/fishing/setwordtip}}
 condition: [<targetTiddler>]
-shortcuts: ((fishing-setquestion))
+shortcuts: ((fishing-setword))
 
 \define tv-action-refresh-policy() always
 
@@ -32,7 +32,7 @@ shortcuts: ((fishing-setquestion))
             <$action-setfield
                 $tiddler=<<targetTiddler>>
                 draft.title={{{ [{$:/temp/fishing!!save-selection}search-replace:g:regexp[\n],[<br>]!is[blank]] ~[<targetTiddler>get[draft.title]] }}}
-                caption="{{||Question}}"
+                caption="{{||Word}}"
             />
         </$fieldmangler>
     </$navigator>

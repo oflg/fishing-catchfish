@@ -4,3 +4,4 @@ fishing-setcloze: alt-shift-C
 fishing-setexcerpt: alt-shift-X
 fishing-setquestion: alt-shift-Q
 fishing-setselect: alt-shift-S
+fishing-setword: alt-shift-W

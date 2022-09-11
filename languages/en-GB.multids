@@ -13,6 +13,8 @@ setcloze: Set as Cloze Question Tiddler
 setclozetip: Set this tiddler as Cloze Question Tiddler and the selected text as it's title
 setselect: Set as Select Question Tiddler
 setselecttip: Set this tiddler as Select Question Tiddler and the selected text as it's title
+setword: Set as Select Word Tiddler
+setwordtip: Set this tiddler as Word Question Tiddler and the selected text as it's title
 catchfishsettings: Catchfish
 setparameter: Parameter
 setinterval: Initial interval day of Excerpt Tiddlers

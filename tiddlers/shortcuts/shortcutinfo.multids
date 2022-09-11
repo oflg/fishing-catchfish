@@ -4,3 +4,4 @@ fishing-setcloze: {{$:/language/fishing/setcloze}}
 fishing-setexcerpt: {{$:/language/fishing/setexcerpt}}
 fishing-setquestion: {{$:/language/fishing/setquestion}}
 fishing-setselect: {{$:/language/fishing/setselect}}
+fishing-setword: {{$:/language/fishing/setword}}
