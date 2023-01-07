@@ -4,7 +4,7 @@ title: $:/plugins/oflg/fishing-catchfish/ui/ControlPanel/Settings/Fishing/fishin
 
 !!!{{$:/language/fishing/setparameter}}
 
-|<$link to="$:/config/FishingCatchfish/requestInterval">{{$:/language/fishing/setinterval}}</$link> |<$edit-text tiddler="$:/config/FishingCatchfish/requestInterval" placeholder="1" tag="input"/><br/>@@color:red;font-size:10px;{{$:/language/fishing/setintervaltip}}@@ |
+|<$link to="$:/config/FishingCatchfish/requestInterval">{{$:/language/fishing/setinterval}}</$link> |{{$:/config/FishingCatchfish/requestInterval}} <$range tiddler="$:/config/FishingCatchfish/requestInterval" min="1" max="7" default="1" increment="1"/> @@color:red;font-size:10px;{{$:/language/fishing/setintervaltip}}@@ |
 
 !!!{{$:/language/ControlPanel/Cascades/Caption}}
 
