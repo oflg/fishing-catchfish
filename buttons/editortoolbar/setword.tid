@@ -2,8 +2,8 @@ title: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setword
 list-after: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setselect
 tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing-catchfish/icons/setword
-caption: {{$:/language/fishing/setword}}
-description: {{$:/language/fishing/setwordtip}}
+caption: {{$:/language/fishing-catchfish/setword}}
+description: {{$:/language/fishing-catchfish/setwordtip}}
 condition: [<targetTiddler>]
 shortcuts: ((fishing-setword))
 

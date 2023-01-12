@@ -2,8 +2,8 @@ title: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setquestion
 list-after: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setexcerpt
 tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing-catchfish/icons/setquestion
-caption: {{$:/language/fishing/setquestion}}
-description: {{$:/language/fishing/setquestiontip}}
+caption: {{$:/language/fishing-catchfish/setquestion}}
+description: {{$:/language/fishing-catchfish/setquestiontip}}
 condition: [<targetTiddler>]
 shortcuts: ((fishing-setquestion))
 

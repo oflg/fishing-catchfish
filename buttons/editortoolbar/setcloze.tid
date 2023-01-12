@@ -2,8 +2,8 @@ title: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setcloze
 list-after: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setquestion
 tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing-catchfish/icons/setcloze
-caption: {{$:/language/fishing/setcloze}}
-description: {{$:/language/fishing/setclozetip}}
+caption: {{$:/language/fishing-catchfish/setcloze}}
+description: {{$:/language/fishing-catchfish/setclozetip}}
 condition: [<targetTiddler>]
 shortcuts: ((fishing-setcloze))
 

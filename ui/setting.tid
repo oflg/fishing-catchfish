@@ -1,18 +1,18 @@
-caption: {{$:/language/fishing/catchfishsettings}}
+caption: {{$:/language/fishing-catchfish/catchfishsettings}}
 tags: $:/tags/ControlPanel/Settings/Fishing
 title: $:/plugins/oflg/fishing-catchfish/ui/ControlPanel/Settings/Fishing/fishing-catchfish
 
-!!!{{$:/language/fishing/setparameter}}
+!!!{{$:/language/fishing-catchfish/setparameter}}
 
-|<$link to="$:/config/FishingCatchfish/requestInterval">{{$:/language/fishing/setinterval}}</$link> |{{$:/config/FishingCatchfish/requestInterval}} <$range tiddler="$:/config/FishingCatchfish/requestInterval" min="1" max="7" default="1" increment="1"/> @@color:red;font-size:10px;{{$:/language/fishing/setintervaltip}}@@ |
+|<$link to="$:/config/FishingCatchfish/requestInterval">{{$:/language/fishing-catchfish/setinterval}}</$link> |{{$:/config/FishingCatchfish/requestInterval}} <$range tiddler="$:/config/FishingCatchfish/requestInterval" min="1" max="7" default="1" increment="1"/> @@color:red;font-size:10px;{{$:/language/fishing-catchfish/setintervaltip}}@@ |
 
 !!!{{$:/language/ControlPanel/Cascades/Caption}}
 
-{{$:/language/fishing/setbodytip}}
+{{$:/language/fishing-catchfish/setbodytip}}
 {{$:/tags/FishingFilter/annotation||$:/snippets/ListTaggedCascade}}
 
-!!!{{$:/language/fishing/annotate}}
+!!!{{$:/language/fishing-catchfish/annotate}}
 
-|<$link to="$:/config/FishingCatchfish/annotateUrlFilter">{{$:/language/fishing/urlfilter}}</$link> |<$edit-text tiddler="$:/config/FishingCatchfish/annotateUrlFilter" tag="textarea" class="tc-edit-texteditor"/> |
-|<$link to="$:/config/FishingCatchfish/excerptColorPattern">{{$:/language/fishing/colorpattern}}</$link> |<$select tiddler="$:/config/FishingCatchfish/excerptColorPattern" default="multiply"><$list filter="[list[$:/config/FishingCatchfish/excerptColorPattern]]" variable="mix-blend-mode"><option value=<<mix-blend-mode>>><$text text={{{ [<mix-blend-mode>addprefix[$:/language/fishing/]get[text]] }}}></option></$list></$select> |
+|<$link to="$:/config/FishingCatchfish/annotateUrlFilter">{{$:/language/fishing-catchfish/urlfilter}}</$link> |<$edit-text tiddler="$:/config/FishingCatchfish/annotateUrlFilter" tag="textarea" class="tc-edit-texteditor"/> |
+|<$link to="$:/config/FishingCatchfish/excerptColorPattern">{{$:/language/fishing-catchfish/colorpattern}}</$link> |<$select tiddler="$:/config/FishingCatchfish/excerptColorPattern" default="multiply"><$list filter="[list[$:/config/FishingCatchfish/excerptColorPattern]]" variable="mix-blend-mode"><option value=<<mix-blend-mode>>><$text text={{{ [<mix-blend-mode>addprefix[$:/language/fishing-catchfish/]get[text]] }}}></option></$list></$select> |
 

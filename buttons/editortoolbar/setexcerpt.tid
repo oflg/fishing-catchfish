@@ -1,8 +1,8 @@
 title: $:/plugins/oflg/fishing-catchfish/buttons/editortoolbar/setexcerpt
 tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing-catchfish/icons/setexcerpt
-caption: {{$:/language/fishing/setexcerpt}}
-description: {{$:/language/fishing/setexcerpttip}}
+caption: {{$:/language/fishing-catchfish/setexcerpt}}
+description: {{$:/language/fishing-catchfish/setexcerpttip}}
 condition: [<targetTiddler>!has[due]]
 shortcuts: ((fishing-setexcerpt))
 

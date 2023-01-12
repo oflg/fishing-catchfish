@@ -3,7 +3,7 @@ tags: $:/tags/FishingGrod
 list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
 popup: $:/plugins/oflg/fishing/buttons/fishingrod/popup/import
 icon: $:/core/images/import-button
-description: {{$:/language/fishing/importtip}}
+description: {{$:/language/fishing-catchfish/importtip}}
 condition: [all[shadows+tiddlers]tag[$:/tags/FishingBait]!is[draft]first[]]
 button-classes: fishingrod-button
 
