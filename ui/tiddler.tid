@@ -1,6 +1,7 @@
 title: $:/plugins/oflg/fishing-catchfish/ui/ViewTemplate/tiddler
 code-body: yes
 
+\whitespace trim
 \define CJKV() [\u2E80-\u9FFF]
 \define click-excerpt-actions()
 <$action-setfield
@@ -34,7 +35,7 @@ code-body: yes
     >
         <$list
             filter="[<selectionTrim>!is[blank]]"
-            variable="null"
+            variable="ignore"
         >
             <$let
                 selectionLowercase={{{ [{<selectionText>lowercase[]] }}}
