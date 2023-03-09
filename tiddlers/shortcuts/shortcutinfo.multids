@@ -1,7 +1,0 @@
-title: $:/config/ShortcutInfo/
-
-fishing-setcloze: {{$:/language/fishing-catchfish/setcloze}}
-fishing-setexcerpt: {{$:/language/fishing-catchfish/setexcerpt}}
-fishing-setquestion: {{$:/language/fishing-catchfish/setquestion}}
-fishing-setselect: {{$:/language/fishing-catchfish/setselect}}
-fishing-setword: {{$:/language/fishing-catchfish/setword}}
