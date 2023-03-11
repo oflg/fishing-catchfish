@@ -7,9 +7,8 @@ condition: [<selectionTrim>]
 
 <$action-createtiddler
     $basetitle={{{ [<sourceTiddler>addsuffix[/]addsuffix{$:/language/fishing-catchfish/excerptsentence}] }}}
-    tags={{{ [<sourceTiddler>format:titlelist[]addsuffix[ ?]] }}}
-    text=<<selectionText>>
-    caption="{{||Excerpt}}"
+    tags={{{ [<sourceTiddler>format:titlelist[]addsuffix[ ? .]] }}}
+    caption=<<selectionText>>
     priority={{{ [<sourceTiddler>get[priority]else[0]] }}}
     interval={{$:/config/FishingCatchfish/requestInterval}}
     due={{{ [{$:/config/FishingCatchfish/requestInterval}due[]] }}}

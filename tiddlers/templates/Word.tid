@@ -9,23 +9,16 @@ code-body: yes
     text="hide"
     animate="yes"
 >
-    <$reveal
-        default={{!!text}}
-        type="match"
-        text=""
-        animate="yes"
+    <div
+        class="tc-tiddler-body"
     >
-        <div
-            class="tc-tiddler-body"
-        >
-            <main style="width:100%;overflow:hidden;">
-                <iframe
-                    height="400px"
-                    width="100%"
-                    src={{{ [subfilter{$:/config/FishingCatchfish/annotateUrlFilter}] }}}
-                    frameborder=0
-                />
-            </main>
-        </div>
-    </$reveal>
+        <main style="width:100%;overflow:hidden;">
+            <iframe
+                height="400px"
+                width="100%"
+                src={{{ [subfilter{$:/config/FishingCatchfish/annotateUrlFilter}] }}}
+                frameborder=0
+            />
+        </main>
+    </div>
 </$reveal>
