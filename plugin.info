@@ -8,5 +8,5 @@
     "plugin-type": "plugin",
     "source": "https://github.com/oflg/fishing-catchfish",
     "title": "$:/plugins/oflg/fishing-catchfish",
-    "version": "0.5.1"
+    "version": "0.5.2"
 }
