@@ -1,0 +1,12 @@
+tags: $:/tags/StartupAction
+title: $:/plugins/oflg/fishing-catchfish/startupactions
+
+<$list
+    filter="[{$:/config/Dynannotate/LegacySelectionTracker/Enable}!match[yes]]"
+    variable="ignore"
+>
+    <$action-setfield
+        $tiddler="$:/config/Dynannotate/LegacySelectionTracker/Enable"
+        $value="yes"
+    />
+</$list>
